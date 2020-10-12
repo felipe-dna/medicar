@@ -132,5 +132,9 @@ dmypy.json
 .pyre/
 
 
+# Admin interface
 backend/admin-interface
 backend/static/*
+
+# Django Migrations
+**/migrations/
