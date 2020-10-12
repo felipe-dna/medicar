@@ -30,7 +30,8 @@ INSTALLED_APPS = [
     'django.contrib.admin',
 
     # My apps.
-    'users'
+    'users',
+    'doctors'
 ]
 
 MIDDLEWARE = [
