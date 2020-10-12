@@ -133,3 +133,4 @@ dmypy.json
 
 
 backend/admin-interface
+backend/static/*
