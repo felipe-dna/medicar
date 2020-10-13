@@ -1,4 +1,5 @@
 """Contains the Medicar API doctors app models."""
+
 from django.core.validators import EmailValidator
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
