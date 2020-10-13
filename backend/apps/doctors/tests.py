@@ -15,8 +15,7 @@ class DoctorModelTestCase(TestCase):
     """Define the doctor model tests."""
 
     def setUp(self) -> None:
-        """"""
-
+        """Create the necessary resources that is used by some tests."""
         self.speciality = Speciality.objects.create(name="pediatrics")
 
     def test_try_to_create_a_doctor_passing_a_invalid_email_format(self) -> None:

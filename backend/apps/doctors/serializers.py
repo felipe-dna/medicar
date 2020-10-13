@@ -19,9 +19,7 @@ class SpecialitySerializer(serializers.ModelSerializer):
 
 
 class DoctorSerializer(WritableNestedModelSerializer):
-    """
-    Contains the Doctor Serializer class.
-    """
+    """Contains the Doctor Serializer class."""
     speciality = SpecialitySerializer(many=False)
 
     class Meta:
