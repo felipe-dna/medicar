@@ -3,6 +3,7 @@
 import uuid
 
 from django.contrib.auth.base_user import AbstractBaseUser
+from django.contrib.auth.models import PermissionsMixin
 from django.core.validators import EmailValidator
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
@@ -10,7 +11,7 @@ from django.utils.translation import ugettext_lazy as _
 from apps.users.managers import UserManager
 
 
-class User(AbstractBaseUser):
+class User(AbstractBaseUser, PermissionsMixin):
     """Define the User model."""
     id = models.UUIDField(
         primary_key=True,
