@@ -4,7 +4,7 @@ import uuid
 from django.db import models
 
 
-class UUIDTimeControlMethod(models.Model):
+class UUIDTimeControlModel(models.Model):
     """
     Define a abstract model that provides a uuid, created_at and updated_at
     fields.

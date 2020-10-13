@@ -4,12 +4,12 @@ from django.db import models
 
 from django.utils.translation import ugettext_lazy as _
 
-from apps.base.models import UUIDTimeControlMethod
+from apps.base.models import UUIDTimeControlModel
 from apps.doctors.validators import validate_crm, validate_phone
 from apps.specialties.models import Speciality
 
 
-class Doctor(UUIDTimeControlMethod):
+class Doctor(UUIDTimeControlModel):
     """Define the Doctor model."""
     name = models.CharField(
         verbose_name=_('name'),
