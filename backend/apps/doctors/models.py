@@ -15,9 +15,8 @@ class Doctor(UUIDTimeControlModel):
         verbose_name=_('name'),
         max_length=60
     )
-    crm = models.CharField(
+    crm = models.PositiveIntegerField(
         verbose_name=_('CRM'),
-        max_length=4,
         unique=True,
         validators=[
             validate_crm

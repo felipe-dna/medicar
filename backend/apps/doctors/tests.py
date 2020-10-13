@@ -19,8 +19,10 @@ class DoctorModelTestCase(TestCase):
         self.speciality = Speciality.objects.create(name="pediatrics")
 
     def test_try_to_create_a_doctor_passing_a_invalid_email_format(self) -> None:
-        """"""
-
+        """
+        Try to create a doctor object passing a invalid email format ensuring that the
+        system returns the correct error message.
+        """
         expected_message = "Enter a valid email address."
 
         with self.assertRaisesMessage(ValidationError, expected_message):
@@ -33,8 +35,10 @@ class DoctorModelTestCase(TestCase):
             )
 
     def test_try_to_create_two_doctors_with_the_same_crm(self) -> None:
-        """"""
-
+        """
+        Try to create two doctor objects passing the same crm ensuring that the
+        system returns the correct error message.
+        """
         expected_message = "Doctor with this CRM already exists."
 
         Doctor.objects.create(
@@ -55,9 +59,12 @@ class DoctorModelTestCase(TestCase):
             )
 
     def test_try_to_create_a_doctor_passing_a_crm_with_length_grater_than_4(self) -> None:
-        """"""
+        """
+        Try to create a doctor passing a crm with length grater than 4 digits ensuring
+        that the system returns the correct error message.
+        """
+        expected_message = "The CRM must have at most 4 numbers."
 
-        expected_message = "Ensure this value has at most 4 characters (it has 5)."
         with self.assertRaisesMessage(ValidationError, expected_message):
             Doctor.objects.create(
                 email="joan@doe.com",
@@ -68,8 +75,10 @@ class DoctorModelTestCase(TestCase):
             )
 
     def test_try_to_create_two_doctors_with_the_same_email(self) -> None:
-        """"""
-
+        """
+        Try to create two doctors with the same email ensuring that the system returns
+        the correct error message.
+        """
         expected_message = "Doctor with this Email already exists."
 
         Doctor.objects.create(
@@ -90,9 +99,11 @@ class DoctorModelTestCase(TestCase):
             )
 
     def test_try_to_create_a_doctor_passing_a_alphabetic_crm(self) -> None:
-        """"""
-
-        expected_message = "The CRM must be a numeric value."
+        """
+        Try to create a doctor passing a alphabetic crm ensuring that the system returns
+        the correct error message.
+        """
+        expected_message = "{'crm': ['“ACRM” value must be an integer.']}"
 
         with self.assertRaisesMessage(ValidationError, expected_message):
             Doctor.objects.create(
@@ -103,9 +114,13 @@ class DoctorModelTestCase(TestCase):
                 speciality=self.speciality
             )
 
-    def test_try_to_create_a_doctor_passing_a_phone_number_with_less_than_ten_characters(self) -> None:
-        """"""
-
+    def test_try_to_create_a_doctor_passing_a_phone_number_with_less_than_ten_characters(
+        self
+    ) -> None:
+        """
+        Try to create a doctor passing a phone number with less than ten characters
+        ensuring that the system returns the correct error message.
+        """
         expected_message = "A phone number must have at least 8 characters."
 
         with self.assertRaisesMessage(ValidationError, expected_message):
