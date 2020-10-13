@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'admin_interface',
     'colorfield',
     'django.contrib.admin',
+    'django_filters',
 
     # My apps.
     'apps.users',

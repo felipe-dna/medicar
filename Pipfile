@@ -8,6 +8,7 @@ Django = "==3.1"
 django-rest-framework = "*"
 django-admin-interface = "*"
 drf-writable-nested = "*"
+django-filter = "*"
 
 [dev-packages]
 isort = "*"
