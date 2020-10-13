@@ -1,4 +1,5 @@
 """Contains the Medicar API users app models."""
+
 import uuid
 
 from django.contrib.auth.base_user import AbstractBaseUser
