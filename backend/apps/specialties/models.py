@@ -13,6 +13,8 @@ class Speciality(UUIDTimeControlModel):
 
     class Meta:
         db_table = 'speciality'
+        verbose_name = 'speciality'
+        verbose_name_plural = 'specialties'
 
     def save(self, *args, **kwargs) -> None:
         """
