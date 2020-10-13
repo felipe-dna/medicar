@@ -7,8 +7,8 @@ https://www.django-rest-framework.org/api-guide/serializers/
 from drf_writable_nested import WritableNestedModelSerializer
 from rest_framework import serializers
 
-from apps.doctors.models import Doctor
-from apps.specialties.models import Speciality
+from ..specialties.models import Speciality
+from .models import Doctor
 
 
 class SpecialitySerializer(serializers.ModelSerializer):

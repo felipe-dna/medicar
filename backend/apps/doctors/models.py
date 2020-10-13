@@ -4,9 +4,9 @@ from django.core.validators import EmailValidator
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
-from apps.base.models import UUIDTimeControlModel
-from apps.doctors.validators import validate_crm, validate_phone
-from apps.specialties.models import Speciality
+from ..base.models import UUIDTimeControlModel
+from ..specialties.models import Speciality
+from .validators import validate_crm, validate_phone
 
 
 class Doctor(UUIDTimeControlModel):

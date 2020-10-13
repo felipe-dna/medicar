@@ -7,7 +7,7 @@ https://www.django-rest-framework.org/api-guide/routers/
 from django.urls import include, path
 from rest_framework import routers
 
-from apps.doctors.viewsets import DoctorViewSet
+from .viewsets import DoctorViewSet
 
 app_name = 'doctors'
 

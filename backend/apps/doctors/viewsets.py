@@ -5,13 +5,11 @@ https://www.django-rest-framework.org/api-guide/viewsets/
 """
 
 from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework import filters, viewsets
 
-from rest_framework import viewsets
-from rest_framework import filters
-
-from apps.doctors.filtersets import DoctorFilter
-from apps.doctors.models import Doctor
-from apps.doctors.serializers import DoctorSerializer
+from .filtersets import DoctorFilter
+from .models import Doctor
+from .serializers import DoctorSerializer
 
 
 class DoctorViewSet(viewsets.ModelViewSet):
