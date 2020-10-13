@@ -1,4 +1,4 @@
-""""""
+"""Contains the Medicar API specialties app models."""
 import uuid
 
 from django.db import models
@@ -7,7 +7,7 @@ from apps.base.models import UUIDTimeControlMethod
 
 
 class Speciality(UUIDTimeControlMethod):
-    """"""
+    """Define the Speciality model."""
     id = models.UUIDField(
         primary_key=True, editable=False, unique=True, default=uuid.uuid4
     )
