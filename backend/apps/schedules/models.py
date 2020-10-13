@@ -4,11 +4,12 @@ from django.db import models
 from apps.base.models import UUIDTimeControlMethod
 from apps.doctors.models import Doctor
 from apps.schedules.validators import validate_schedule_date
+from django.utils.translation import ugettext_lazy as _
 
 
 class DoctorScheduleTime(UUIDTimeControlMethod):
     """Define the ScheduleTime model."""
-    time = models.TimeField()
+    time = models.TimeField(verbose_name=_('time'))
 
     class Meta:
         db_table = 'doctor_schedule_time'
@@ -32,15 +33,18 @@ class DoctorScheduleTime(UUIDTimeControlMethod):
 class DoctorSchedule(UUIDTimeControlMethod):
     """Define the DoctorSchedule model."""
     doctor = models.ForeignKey(
+        verbose_name=_('doctor'),
         to=Doctor,
         on_delete=models.CASCADE
     )
     day = models.DateField(
+        verbose_name=_('day'),
         validators=[
             validate_schedule_date
         ]
     )
     available_times = models.ManyToManyField(
+        verbose_name=_('available_times'),
         to=DoctorScheduleTime,
         blank=True
     )
