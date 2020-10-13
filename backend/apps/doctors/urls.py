@@ -1,0 +1,20 @@
+"""
+Contains the doctors app urls.
+
+https://www.django-rest-framework.org/api-guide/routers/
+"""
+
+from rest_framework import routers
+
+from django.urls import path, include
+
+from apps.doctors.viewsets import DoctorViewSet
+
+app_name = 'doctors'
+
+router = routers.SimpleRouter(trailing_slash=False)
+router.register('doctors', DoctorViewSet)
+
+urlpatterns = [
+    path('', include(router.urls))
+]
