@@ -1,10 +1,10 @@
 """Contains the Medicar API specialties app models."""
 from django.db import models
 
-from apps.base.models import UUIDTimeControlMethod
+from apps.base.models import UUIDTimeControlModel
 
 
-class Speciality(UUIDTimeControlMethod):
+class Speciality(UUIDTimeControlModel):
     """Define the Speciality model."""
     name = models.CharField(
         max_length=100,
@@ -13,6 +13,8 @@ class Speciality(UUIDTimeControlMethod):
 
     class Meta:
         db_table = 'speciality'
+        verbose_name = 'speciality'
+        verbose_name_plural = 'specialties'
 
     def save(self, *args, **kwargs) -> None:
         """

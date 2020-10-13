@@ -26,9 +26,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # 3rd party apps.
+    'rest_framework',
     'admin_interface',
     'colorfield',
     'django.contrib.admin',
+    'django_filters',
 
     # My apps.
     'apps.users',
@@ -125,3 +127,13 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ],
+    'DEFAULT_FILTER_BACKENDS': [
+        'django_filters.rest_framework.DjangoFilterBackend'
+    ]
+}

@@ -4,14 +4,15 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-django = "*"
+Django = "==3.1"
 django-rest-framework = "*"
 django-admin-interface = "*"
+drf-writable-nested = "*"
+django-filter = "*"
 
 [dev-packages]
 isort = "*"
 flake8 = "*"
-black = "*"
 
 [requires]
 python_version = "3.8"

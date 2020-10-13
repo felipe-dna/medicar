@@ -15,8 +15,8 @@ def validate_crm(value: str) -> None:
     :param value: The current crm value.
     """
 
-    if not value.isdigit():
-        raise ValidationError(_("The CRM must be a numeric value."))
+    if len(str(value)) > 4:
+        raise ValidationError(_("The CRM must have at most 4 numbers."))
 
 
 def validate_phone(value: str) -> None:

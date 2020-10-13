@@ -9,9 +9,9 @@ from datetime import datetime, timedelta
 from django.core.exceptions import ValidationError
 from django.test import TestCase
 
-from .models import DoctorScheduleTime, DoctorSchedule
 from ..doctors.models import Doctor
 from ..specialties.models import Speciality
+from .models import DoctorSchedule, DoctorScheduleTime
 
 
 class DoctorScheduleTimeModelTestCase(TestCase):

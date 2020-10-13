@@ -1,13 +1,13 @@
 """Contains the Medicar API users app models."""
 from django.db import models
-
-from apps.base.models import UUIDTimeControlMethod
-from apps.doctors.models import Doctor
-from apps.schedules.validators import validate_schedule_date
 from django.utils.translation import ugettext_lazy as _
 
+from apps.base.models import UUIDTimeControlModel
+from apps.doctors.models import Doctor
+from apps.schedules.validators import validate_schedule_date
 
-class DoctorScheduleTime(UUIDTimeControlMethod):
+
+class DoctorScheduleTime(UUIDTimeControlModel):
     """Define the ScheduleTime model."""
     time = models.TimeField(verbose_name=_('time'))
 
@@ -30,7 +30,7 @@ class DoctorScheduleTime(UUIDTimeControlMethod):
         return self.time.strftime('%HH:%MM:%SS')
 
 
-class DoctorSchedule(UUIDTimeControlMethod):
+class DoctorSchedule(UUIDTimeControlModel):
     """Define the DoctorSchedule model."""
     doctor = models.ForeignKey(
         verbose_name=_('doctor'),

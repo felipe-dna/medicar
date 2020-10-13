@@ -1,23 +1,22 @@
 """Contains the Medicar API doctors app models."""
+
 from django.core.validators import EmailValidator
 from django.db import models
-
 from django.utils.translation import ugettext_lazy as _
 
-from apps.base.models import UUIDTimeControlMethod
-from apps.doctors.validators import validate_crm, validate_phone
-from apps.specialties.models import Speciality
+from ..base.models import UUIDTimeControlModel
+from ..specialties.models import Speciality
+from .validators import validate_crm, validate_phone
 
 
-class Doctor(UUIDTimeControlMethod):
+class Doctor(UUIDTimeControlModel):
     """Define the Doctor model."""
     name = models.CharField(
         verbose_name=_('name'),
         max_length=60
     )
-    crm = models.CharField(
+    crm = models.PositiveIntegerField(
         verbose_name=_('CRM'),
-        max_length=4,
         unique=True,
         validators=[
             validate_crm
