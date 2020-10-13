@@ -9,5 +9,5 @@ class Speciality(UUIDTimeControlMethod):
     name = models.CharField(max_length=100, unique=True)
 
     def __str__(self) -> str:
-        """"""
+        """Return a string representation for Speciality model instance."""
         return self.name
