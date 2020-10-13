@@ -16,3 +16,4 @@ class DoctorViewSet(viewsets.ModelViewSet):
     queryset = Doctor.objects.all()
     serializer_class = DoctorSerializer
     permission_classes = []
+    http_method_names = ['options', 'post', 'get', 'patch', 'delete']
