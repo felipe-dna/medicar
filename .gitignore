@@ -3,6 +3,9 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# Pycharm settings
+.idea
+
 # C extensions
 *.so
 
@@ -127,3 +130,11 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+
+# Admin interface
+backend/admin-interface
+backend/static/*
+
+# Django Migrations
+**/migrations/
