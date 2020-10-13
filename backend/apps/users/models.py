@@ -11,15 +11,40 @@ from apps.users.managers import UserManager
 
 class User(AbstractBaseUser):
     """Define the User model."""
-    id = models.UUIDField(primary_key=True, unique=True, editable=False, default=uuid.uuid4)
-    email = models.EmailField(max_length=150, unique=True, validators=[EmailValidator])
-
-    name = models.CharField(_('name'), max_length=60, blank=True)
-    date_joined = models.DateTimeField(_('date joined'), auto_now_add=True)
-
-    is_active = models.BooleanField(_('active'), default=True)
-    is_staff = models.BooleanField(_('staff'), default=False)
-    is_superuser = models.BooleanField(_('superuser'), default=False)
+    id = models.UUIDField(
+        primary_key=True,
+        unique=True,
+        editable=False,
+        default=uuid.uuid4
+    )
+    email = models.EmailField(
+        max_length=150,
+        unique=True,
+        validators=[
+            EmailValidator
+        ]
+    )
+    name = models.CharField(
+        verbose_name=_('name'),
+        max_length=60,
+        blank=True
+    )
+    date_joined = models.DateTimeField(
+        verbose_name=_('date joined'),
+        auto_now_add=True
+    )
+    is_active = models.BooleanField(
+        verbose_name=_('active'),
+        default=True
+    )
+    is_staff = models.BooleanField(
+        verbose_name=_('staff'),
+        default=False
+    )
+    is_superuser = models.BooleanField(
+        verbose_name=_('superuser'),
+        default=False
+    )
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['name']
@@ -29,7 +54,12 @@ class User(AbstractBaseUser):
     class Meta:
         db_table = 'user'
 
-    def save(self, *args, **kwargs):
+    def save(self, *args, **kwargs) -> None:
+        """
+        Override the models.Model.save() method to call the
+        models.Model.full_clean() method to validate all the fields before
+        save.
+        """
         self.full_clean()
         super(User, self).save(*args, **kwargs)
 
