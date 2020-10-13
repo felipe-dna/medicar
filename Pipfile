@@ -9,6 +9,9 @@ django-rest-framework = "*"
 django-admin-interface = "*"
 
 [dev-packages]
+isort = "*"
+flake8 = "*"
+black = "*"
 
 [requires]
 python_version = "3.8"
