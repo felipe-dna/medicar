@@ -67,5 +67,5 @@ class DoctorSchedule(UUIDTimeControlMethod):
         """
         Return a string representation for a DoctorSchedule model instance.
         """
-        return f'Dr. {self.doctor.name} - {self.day.strftime("%dd/mm/YY")}'
+        return f'Dr. {self.doctor.name} - {self.day.strftime("%d/%m/%Y")}'
 
