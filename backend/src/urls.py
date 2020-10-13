@@ -5,10 +5,15 @@ TODO: add path to docs.
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+
 
 urlpatterns = [
+    # Admin urls.
     path('admin/', admin.site.urls),
+
+    # API urls.
+    path('v1/', include('apps.doctors.urls'), name='doctors'),
 ]
 
 # Static and media URLS settings.
