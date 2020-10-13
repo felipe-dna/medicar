@@ -1,10 +1,10 @@
 """Contains the Medicar API users app models."""
 from django.db import models
+from django.utils.translation import ugettext_lazy as _
 
 from apps.base.models import UUIDTimeControlModel
 from apps.doctors.models import Doctor
 from apps.schedules.validators import validate_schedule_date
-from django.utils.translation import ugettext_lazy as _
 
 
 class DoctorScheduleTime(UUIDTimeControlModel):

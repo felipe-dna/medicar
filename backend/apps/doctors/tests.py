@@ -7,8 +7,8 @@ https://docs.djangoproject.com/en/3.1/topics/testing/overview/
 from django.core.exceptions import ValidationError
 from django.test import TestCase
 
-from .models import Doctor
 from ..specialties.models import Speciality
+from .models import Doctor
 
 
 class DoctorModelTestCase(TestCase):
