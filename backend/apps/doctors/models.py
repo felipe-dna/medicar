@@ -5,6 +5,7 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
 from apps.base.models import UUIDTimeControlMethod
+from apps.doctors.validators import validate_crm, validate_phone
 from apps.specialties.models import Speciality
 
 
@@ -14,9 +15,13 @@ class Doctor(UUIDTimeControlMethod):
         verbose_name=_('name'),
         max_length=60
     )
-    crm = models.PositiveIntegerField(
+    crm = models.CharField(
+        verbose_name=_('CRM'),
         max_length=4,
-        unique=True
+        unique=True,
+        validators=[
+            validate_crm
+        ]
     )
     email = models.EmailField(
         max_length=150,
@@ -27,7 +32,10 @@ class Doctor(UUIDTimeControlMethod):
     )
     phone = models.CharField(
         verbose_name=_('phone'),
-        max_length=11
+        max_length=11,
+        validators=[
+            validate_phone
+        ]
     )
     speciality = models.ForeignKey(
         to=Speciality,
