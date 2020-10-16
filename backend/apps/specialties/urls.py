@@ -12,7 +12,7 @@ from .viewsets import SpecialityViewSet
 app_name = 'specialties'
 
 router = routers.SimpleRouter(trailing_slash=False)
-router.register('doctors', SpecialityViewSet)
+router.register('specialties', SpecialityViewSet)
 
 urlpatterns = [
     path('', include(router.urls))
