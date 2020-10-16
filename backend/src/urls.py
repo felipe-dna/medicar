@@ -13,6 +13,7 @@ urlpatterns = [
 
     # API urls.
     path('v1/', include('apps.doctors.urls'), name='doctors'),
+    path('v1/', include('apps.specialties.urls'), name='specialties'),
 ]
 
 # Static and media URLS settings.
