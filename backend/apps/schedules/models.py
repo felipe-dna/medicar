@@ -44,7 +44,7 @@ class DoctorSchedule(UUIDTimeControlModel):
         ]
     )
     available_times = models.ManyToManyField(
-        verbose_name=_('available_times'),
+        verbose_name=_('available times'),
         to=DoctorScheduleTime,
         blank=True
     )
