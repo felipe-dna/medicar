@@ -9,7 +9,6 @@ class Speciality(UUIDTimeControlModel):
     """Define the Speciality model."""
     name = models.CharField(
         verbose_name=_('speciality name'),
-        verbose_name_plural=_('specialties name'),
         max_length=100,
         unique=True
     )
