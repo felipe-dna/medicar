@@ -10,7 +10,7 @@ from .models import Speciality
 from .serializers import SpecialitySerializer
 
 
-class SpecialityViewSet(viewsets.ViewSet):
+class SpecialityViewSet(viewsets.ModelViewSet):
     """Contains the Speciality view set."""
 
     http_method_names = ('options', 'post', 'get')
