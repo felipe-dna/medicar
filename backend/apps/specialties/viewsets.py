@@ -5,6 +5,7 @@ https://www.django-rest-framework.org/api-guide/viewsets/
 """
 
 from rest_framework import filters, viewsets
+from rest_framework.permissions import IsAuthenticated
 
 from .models import Speciality
 from .serializers import SpecialitySerializer
@@ -14,7 +15,7 @@ class SpecialityViewSet(viewsets.ModelViewSet):
     """Contains the Speciality view set."""
 
     http_method_names = ('options', 'post', 'get')
-    permission_classes = []
+    permission_classes = (IsAuthenticated,)
     queryset = Speciality.objects.all()
     serializer_class = SpecialitySerializer
 

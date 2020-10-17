@@ -7,6 +7,7 @@ https://www.django-rest-framework.org/api-guide/viewsets/
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import filters, viewsets
 from rest_framework.decorators import action
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.request import Request
 from rest_framework.response import Response
 
@@ -20,7 +21,7 @@ from .serializers import DoctorSerializer
 class DoctorViewSet(viewsets.ModelViewSet):
     """Contains the Doctor view set."""
     http_method_names = ('options', 'post', 'get', 'patch', 'delete')
-    permission_classes = []
+    permission_classes = (IsAuthenticated,)
     queryset = Doctor.objects.all()
     serializer_class = DoctorSerializer
 
@@ -30,7 +31,12 @@ class DoctorViewSet(viewsets.ModelViewSet):
     filterset_class = DoctorFilter
     search_fields = ('name',)
 
-    @action(detail=True, methods=['get'], permission_classes=[], url_path='schedules')
+    @action(
+        detail=True,
+        methods=['get'],
+        permission_classes=[IsAuthenticated],
+        url_path='schedules'
+    )
     def get_doctor_schedules(self, _: Request, pk: str) -> Response:
         """
         Manages the doctors/<pk/schedules resource.
