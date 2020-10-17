@@ -32,7 +32,7 @@ class DoctorViewSet(viewsets.ModelViewSet):
     search_fields = ('name',)
 
     @action(detail=True, methods=['get'], permission_classes=[], url_path='schedules')
-    def get_doctor_schedules(self, request: Request, pk: str) -> Response:
+    def get_doctor_schedules(self, _: Request, pk: str) -> Response:
         """
         Manages the doctors/<pk/schedules resource.
 
@@ -40,8 +40,8 @@ class DoctorViewSet(viewsets.ModelViewSet):
         the doctor schedules filtering by the given doctor id(pk). Finally, returns it as
         response.
 
-        :param request: The HTTP response object.
-        :type request: rest_framework.request.Request.
+        :param _: The HTTP response object.
+        :type _: rest_framework.request.Request.
 
         :param pk: The doctor id passed in the path.
         :type pk: str.
@@ -49,7 +49,8 @@ class DoctorViewSet(viewsets.ModelViewSet):
         :return: A rest_framework.response.Response object with the serialized data.
         :rtype: rest_framework.response.Response.
         """
-        self.retrieve(request=request, pk=pk)
+        if not Doctor.objects.filter(id=pk).exists():
+            Response({'error': f'Doctor with id {pk} does not exists.'})
 
         doctor_schedule = DoctorSchedule.objects.filter(doctor__id=pk)
 
