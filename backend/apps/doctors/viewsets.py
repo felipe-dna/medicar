@@ -50,7 +50,7 @@ class DoctorViewSet(viewsets.ModelViewSet):
         :rtype: rest_framework.response.Response.
         """
         if not Doctor.objects.filter(id=pk).exists():
-            Response({'error': f'Doctor with id {pk} does not exists.'})
+            return Response({'error': 'Doctor not found.'}, status=404)
 
         doctor_schedule = DoctorSchedule.objects.filter(doctor__id=pk)
 
