@@ -13,9 +13,11 @@ urlpatterns = [
 
     # API urls.
     path('v1/', include('apps.doctors.urls'), name='doctors'),
+    path('v1/', include('apps.specialties.urls'), name='specialties'),
+    path('v1/', include('apps.users.urls'), name='users')
 ]
 
-# Static and media URLS settings.
+# Static and media URLs settings.
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

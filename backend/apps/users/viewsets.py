@@ -4,16 +4,12 @@ Contains the users app view sets.
 https://www.django-rest-framework.org/api-guide/viewsets/
 """
 
-from rest_framework import viewsets
-from rest_framework.request import Request
-from rest_framework.response import Response
+from rest_framework.authtoken.views import ObtainAuthToken
 
-from apps.users.models import User
-from apps.users.serializers import UserSerializer
+from apps.users.serializers import LoginSerializer
 
 
-class UserViewSet(viewsets.ModelViewSet):
-    """"""
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
-    permission_classes = []
+class LoginViewSet(ObtainAuthToken):
+    """Define the login view set."""
+    serializer_class = LoginSerializer
+    http_method_names = ['post']

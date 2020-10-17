@@ -1,12 +1,14 @@
 """Contains the Medicar API specialties app models."""
 from django.db import models
+from django.utils.translation import ugettext_lazy as _
 
-from apps.base.models import UUIDTimeControlModel
+from ..base.models import UUIDTimeControlModel
 
 
 class Speciality(UUIDTimeControlModel):
     """Define the Speciality model."""
     name = models.CharField(
+        verbose_name=_('speciality name'),
         max_length=100,
         unique=True
     )

@@ -27,6 +27,7 @@ INSTALLED_APPS = [
 
     # 3rd party apps.
     'rest_framework',
+    'rest_framework.authtoken',
     'admin_interface',
     'colorfield',
     'django.contrib.admin',
@@ -135,5 +136,8 @@ REST_FRAMEWORK = {
     ],
     'DEFAULT_FILTER_BACKENDS': [
         'django_filters.rest_framework.DjangoFilterBackend'
-    ]
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
 }
