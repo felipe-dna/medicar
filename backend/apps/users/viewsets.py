@@ -16,6 +16,7 @@ from apps.users.serializers import LoginSerializer
 class LoginViewSet(ObtainAuthToken):
     """Define the login view set."""
     serializer_class = LoginSerializer
+    http_method_names = ['post']
 
     if coreapi_schema.is_enabled():
         schema = ManualSchema(
