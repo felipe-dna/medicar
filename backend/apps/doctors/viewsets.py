@@ -10,16 +10,15 @@ from rest_framework.decorators import action
 from rest_framework.request import Request
 from rest_framework.response import Response
 
+from ..schedules.models import DoctorSchedule
+from ..schedules.serializers import DoctorScheduleSerializer
 from .filtersets import DoctorFilter
 from .models import Doctor
 from .serializers import DoctorSerializer
-from ..schedules.models import DoctorSchedule
-from ..schedules.serializers import DoctorScheduleSerializer
 
 
 class DoctorViewSet(viewsets.ModelViewSet):
     """Contains the Doctor view set."""
-
     http_method_names = ('options', 'post', 'get', 'patch', 'delete')
     permission_classes = []
     queryset = Doctor.objects.all()
