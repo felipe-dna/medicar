@@ -2,12 +2,12 @@
 from rest_framework.authtoken.models import Token
 
 
-def generate_user_token(_, instance, created: bool, **kwargs) -> None:
+def generate_user_token(sender, instance, created: bool, **kwargs) -> None:
     """
     Called when a new user is created, it generate a new Token for this user.
 
-    :param _: The model class that just had an instance created.
-    :type _: users.models.User.
+    :param sender: The model class that just had an instance created.
+    :type sender: users.models.User.
     :param instance: The created user instance.
     :type instance: users.models.User.
     :param created: A boolean value that defines if the user is being created or updated.
