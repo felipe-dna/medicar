@@ -27,6 +27,7 @@ INSTALLED_APPS = [
 
     # 3rd party apps.
     'rest_framework',
+    'rest_framework.authtoken',
     'admin_interface',
     'colorfield',
     'django.contrib.admin',
