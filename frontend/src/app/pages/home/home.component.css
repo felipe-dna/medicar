@@ -1,0 +1,80 @@
+.main-container {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 0 27.5%;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.toolbar {
+  background-color: #FFF;
+
+  display: flex;
+  align-items: center
+}
+
+.toolbar-buttons-container a {
+  margin-left: 40px;
+  font-size: 1.5vh;
+  text-decoration: none;
+}
+
+.user-name {
+  color: #A8A8A8;
+}
+
+.logout-button {
+  color: #49B4BB;
+}
+
+.body-card {
+  width: 100%;
+}
+
+.card-actions {
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center
+}
+
+.card-title {
+  font-weight: bold;
+  font-size: 18px;
+  color: #444444;
+}
+
+.new-appointment-button {
+  width: 150px;
+  height: 24px;
+  padding: 0 15px;
+
+  background: #49B4BB;
+  color: #fff;
+
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 12px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.add-appointment-icon {
+  font-size: 20px;
+}
+
+table {
+  width: 100%;
+  box-shadow: none;
+}
