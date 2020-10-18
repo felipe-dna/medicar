@@ -16,8 +16,8 @@ class DoctorSerializer(WritableNestedModelSerializer):
 
     class Meta:
         model = Doctor
-        fields = [
+        fields = (
             'id', 'name', 'crm', 'email', 'phone', 'speciality', 'created_at',
             'updated_at'
-        ]
-        read_only_fields = ['id', 'created_at', 'updated_at', 'speciality']
+        )
+        read_only_fields = ('id', 'created_at', 'updated_at', 'speciality')
