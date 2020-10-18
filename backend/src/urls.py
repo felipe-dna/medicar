@@ -14,7 +14,9 @@ urlpatterns = [
     # API urls.
     path('v1/', include('apps.doctors.urls'), name='doctors'),
     path('v1/', include('apps.specialties.urls'), name='specialties'),
-    path('v1/', include('apps.users.urls'), name='users')
+    path('v1/', include('apps.users.urls'), name='users'),
+    path('v1/', include('apps.appointments.urls'), name='appointments')
+
 ]
 
 # Static and media URLs settings.
