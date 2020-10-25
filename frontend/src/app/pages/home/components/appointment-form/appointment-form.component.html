@@ -5,27 +5,27 @@
 
     <form action="" class="add-appointment-form">
       <div class="select-div">
-        <select name="Especialidade" id="speciality">
-          <option value="select">Especialidade</option>
+        <select name="Especialidade" id="speciality" (change)="onSelectChanges($event)">
+          <option value="default">Especialidade</option>
           <option *ngFor="let speciality of specialties" [value]="speciality.id">{{ speciality.name }}</option>
         </select>
       </div>
       <div class="select-div">
-        <select name="Especialidade" id="doctor" disabled>
-          <option value="select">Médico</option>
-          <option *ngFor="let speciality of specialties" [value]="speciality.id">{{ speciality.name }}</option>
+        <select name="Médico" id="doctor" (change)="onSelectChanges($event)" disabled>
+          <option value="default">Médico</option>
+          <option *ngFor="let doctor of doctors" [value]="doctor.id">{{ doctor.name }}</option>
         </select>
       </div>
       <div class="select-div">
-        <select name="Especialidade" id="date" disabled>
-          <option value="select">Data</option>
-          <option *ngFor="let speciality of specialties" [value]="speciality.id">{{ speciality.name }}</option>
+        <select name="Data" id="date" (change)="onSelectChanges($event)" disabled>
+          <option value="default">Data</option>
+          <option *ngFor="let schedule of schedules" [value]="schedule.day">{{ schedule.day | date: 'dd/MM/yyyy' }}</option>
         </select>
       </div>
       <div class="select-div">
-        <select name="Especialidade" id="time" disabled>
-          <option value="select">Hora</option>
-          <option *ngFor="let speciality of specialties" [value]="speciality.id">{{ speciality.name }}</option>
+        <select name="Hora" id="time" (change)="onSelectChanges($event)" disabled>
+          <option value="default">Hora</option>
+          <option *ngFor="let time of availableTimes" [value]="time.time">{{ time.time }}</option>
         </select>
       </div>
     </form>

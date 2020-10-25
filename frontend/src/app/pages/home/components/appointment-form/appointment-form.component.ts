@@ -1,10 +1,16 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ApiService } from '../../../../shared/service/api.service';
-import { Doctor, Speciality } from '../../../../shared/models/Appointment.model';
+import { AvailableTime, Doctor, Schedule, Speciality } from '../../../../shared/models/Appointment.model';
 
 export interface AppointmentData {
   speciality: string;
+  doctor: string;
+  date: string;
+  time: string;
+}
+
+export interface AppointmentBodyParameters {
   doctor: string;
   date: string;
   time: string;
@@ -16,8 +22,16 @@ export interface AppointmentData {
   styleUrls: ['./appointment-form.component.css']
 })
 export class AppointmentFormComponent implements OnInit {
+  // Form needed data;
   public specialties: Speciality[];
   public doctors: Doctor[];
+  public schedules: Schedule[];
+  public availableTimes: AvailableTime[];
+  public newAppointment: AppointmentBodyParameters = {
+    doctor: null,
+    date: null,
+    time: null
+  };
 
   constructor(
     public apiService: ApiService,
@@ -46,6 +60,26 @@ export class AppointmentFormComponent implements OnInit {
       case 'speciality': {
         this.getDoctors(value);
         doctorInput.removeAttribute('disabled');
+        break;
+      }
+      case 'doctor': {
+        this.newAppointment.doctor = value;
+        this.getDoctorsSchedule(value);
+        dateInput.removeAttribute('disabled');
+        break;
+      }
+      case 'date': {
+        // @ts-ignore
+        this.getDoctorsSchedule(doctorInput.value, value);
+        this.availableTimes = this.schedules[0].available_times;
+        timeInput.removeAttribute('disabled');
+        this.newAppointment.date = value;
+        break;
+      }
+      case 'time': {
+        this.newAppointment.time = value;
+        console.log(this.newAppointment);
+        break;
       }
     }
   }
@@ -56,6 +90,11 @@ export class AppointmentFormComponent implements OnInit {
   getDoctors(specialityId: string): void {
     this.apiService.getDoctorsBySpeciality(specialityId).subscribe(data => {
       this.doctors = data;
+    });
+  }
+  getDoctorsSchedule(doctorId: string, date: string = null): void {
+    this.apiService.getDoctorSchedulesByDate(doctorId, date).subscribe(data => {
+      this.schedules = data;
     });
   }
 }

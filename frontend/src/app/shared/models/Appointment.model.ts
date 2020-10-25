@@ -13,3 +13,19 @@ export class Appointment {
   id: string;
   time: string;
 }
+
+export class AvailableTime {
+  id: string;
+  day: string;
+  time: string;
+  Doctor: string;
+  Patient: string;
+}
+
+export class Schedule {
+  id: string;
+  doctor: string;
+  day: string;
+  // tslint:disable-next-line:variable-name
+  available_times: AvailableTime[];
+}
