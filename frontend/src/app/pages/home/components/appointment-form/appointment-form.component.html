@@ -1,0 +1,19 @@
+<div id="dialog-container">
+  <h3 class="mat-dialog-title">Nova consulta</h3>
+
+  <div class="mat-dialog-content">
+
+    <form action="" class="add-appointment-form">
+      <div class="select-div">
+        <select name="Especialidade" id="speciality">
+          <option value="select">Especialidade</option>
+          <option *ngFor="let speciality of specialties" [value]="speciality.id">{{ speciality.name }}</option>
+        </select>
+      </div>
+    </form>
+  </div>
+  <div class="mat-dialog-actions">
+    <button mat-button (click)="onNoClick()">Cancelar</button>
+    <button mat-button (click)="onNoClick()">Confirmar</button>
+</div>
+</div>

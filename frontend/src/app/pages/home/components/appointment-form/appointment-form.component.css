@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap');
+
+#dialog-container {
+  height: 100%;
+  position: relative;
+  overflow-y: hidden;
+}
+
+#dialog-container .mat-dialog-title {
+  color: #444;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 21px;
+
+  display: inline-block;
+  margin-bottom: 40px;
+}
+
+#dialog-container .mat-dialog-content {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 220px;
+}
+
+#dialog-container .mat-dialog-content .add-appointment-form {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.select-div {
+  position: relative;
+  width: 100%;
+}
+
+.select-div:after {
+  content: '>';
+  font: 20px 'Oswald', sans-serif, monospace;
+  font-weight: 400;
+  color: #A8A8A8;
+
+  right: 11px;
+  top: 2px;
+  position: absolute;
+  pointer-events: none;
+
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  min-width: 15ch;
+  width: 100%;
+  margin: 0;
+  padding: .6em 1.4em .5em .8em;
+
+  box-sizing: border-box;
+  border: 1px solid #A8A8A8;
+  border-radius: 4px;
+
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 15px;
+  color: #A8A8A8;
+
+  background-color: transparent;
+  cursor: pointer;
+}
+
+select::-ms-expand {
+     display: none;
+}
+
+#dialog-container .mat-dialog-content .add-appointment-form select:active,
+#dialog-container .mat-dialog-content .add-appointment-form select:hover.active,
+#dialog-container .mat-dialog-content .add-appointment-form select:focus,
+#dialog-container .mat-dialog-content .add-appointment-form select:hover,
+#dialog-container .mat-dialog-content .add-appointment-form select:optional,
+#dialog-container .mat-dialog-content .add-appointment-form select:out-of-range,
+#dialog-container .mat-dialog-content .add-appointment-form select:read-only,
+#dialog-container .mat-dialog-content .add-appointment-form select:read-write,
+#dialog-container .mat-dialog-content .add-appointment-form select:hover,
+#dialog-container .mat-dialog-content .add-appointment-form select:target,
+#dialog-container .mat-dialog-content .add-appointment-form select:valid,
+#dialog-container .mat-dialog-content .add-appointment-form select:enabled,
+#dialog-container .mat-dialog-content .add-appointment-form select:checked {
+  border: 1px solid #A8A8A8;
+}
+
+
+#dialog-container .mat-dialog-actions {
+  margin-top: 40px;
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
