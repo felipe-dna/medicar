@@ -40,7 +40,7 @@ class DoctorViewSet(viewsets.ModelViewSet):
     def get_doctor_schedules(self, _: Request, pk: str) -> Response:
         """
         Manages the doctors/<pk/schedules resource.
-s
+
         Checks if the given user exists calling the retrieve method and then, tries to get
         the doctor schedules filtering by the given doctor id(pk). Finally, returns it as
         response.
