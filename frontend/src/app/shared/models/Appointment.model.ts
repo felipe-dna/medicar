@@ -29,3 +29,11 @@ export class Schedule {
   // tslint:disable-next-line:variable-name
   available_times: AvailableTime[];
 }
+
+export class AuthenticationResponse {
+  token: string;
+}
+
+export class UserData {
+  name: string
+}
