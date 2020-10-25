@@ -17,13 +17,20 @@ import { MatTableModule } from '@angular/material/table';
 import { MatDialogModule } from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { LoginComponent } from './pages/login/login.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatCheckboxModule }  from '@angular/material/checkbox';
+import {FormsModule} from '@angular/forms';
+import { LogoutComponent } from './pages/logout/logout.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    AppointmentFormComponent
+    AppointmentFormComponent,
+    LoginComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
@@ -38,6 +45,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MatDialogModule,
     BrowserAnimationsModule,
     NgbModule,
+    MatInputModule,
+    MatCheckboxModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

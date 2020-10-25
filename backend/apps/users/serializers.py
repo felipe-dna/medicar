@@ -61,3 +61,8 @@ class LoginSerializer(serializers.Serializer):
         parameters['user'] = user
 
         return parameters
+
+
+class UserSerializer(serializers.Serializer):
+    """"""
+    name = serializers.CharField(read_only=True)

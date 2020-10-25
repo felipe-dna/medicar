@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../shared/service/api.service';
-import { Appointment, Speciality } from '../../shared/models/Appointment.model';
+import { Appointment, UserData } from '../../shared/models/Appointment.model';
 import { MatDialog } from '@angular/material/dialog';
 import { AppointmentFormComponent } from './components/appointment-form/appointment-form.component';
 
@@ -11,6 +11,7 @@ import { AppointmentFormComponent } from './components/appointment-form/appointm
 })
 
 export class HomeComponent implements OnInit {
+  public userName: string;
   appointmentList: Appointment[];
   displayedColumns: string[] = ['ESPECIALIDADE', 'PROFISSIONAL', 'DATA', 'HORA'];
   speciality: string;
@@ -20,7 +21,7 @@ export class HomeComponent implements OnInit {
 
   constructor(
     public apiService: ApiService,
-    public appointmentDialog: MatDialog
+    public appointmentDialog: MatDialog,
   ) {}
 
   openDialog(): void {
@@ -37,17 +38,16 @@ export class HomeComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
       this.doctor = result;
     });
   }
 
   ngOnInit(): void {
     this.getAppointments();
+    this.userName = window.localStorage.getItem('userName');
   }
 
-  // tslint:disable-next-line:typedef
-  getAppointments() {
+  getAppointments(): void {
     this.apiService.getMedicalAppointments().subscribe(data => this.appointmentList = data);
   }
 }

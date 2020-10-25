@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import {Appointment, AuthenticationResponse, Doctor, Schedule, Speciality} from '../models/Appointment.model';
+import {Appointment, AuthenticationResponse, Doctor, Schedule, Speciality, UserData} from '../models/Appointment.model';
 
 import { environment } from '../../../environments/environment';
 
@@ -45,10 +45,11 @@ export class ApiService {
   }
 
   public authenticateUser(credentials: {}): Observable<AuthenticationResponse> {
-    return this.httpClient.post<AuthenticationResponse>(
-      `${this.apiUrl}/users/login`,
-      credentials,
-      this.httpOptions,
-    );
+    return this.httpClient
+      .post<AuthenticationResponse>(`${this.apiUrl}/users/login`, credentials, this.httpOptions)
+  }
+
+  public getUserData(): Observable<UserData> {
+    return this.httpClient.get<UserData>(`${this.apiUrl}/users`, this.httpOptions);
   }
 }

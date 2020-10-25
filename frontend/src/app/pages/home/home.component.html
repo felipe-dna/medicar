@@ -5,8 +5,8 @@
       <span><img src="assets/logo.png" alt="logo" height="25" /></span>
       <span class="spacer"></span>
       <span class="toolbar-buttons-container">
-        <a href="#" class="user-name">Lucas Freitas</a>
-        <a href="#" class="logout-button">Desconectar</a>
+        <a class="user-name">{{ userName }}</a>
+        <a [routerLink]="['/logout']" class="logout-button">Desconectar</a>
       </span>
     </mat-toolbar-row>
   </mat-toolbar>
