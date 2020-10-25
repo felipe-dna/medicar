@@ -1,28 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-  userId: string;
-}
-
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H', userId: "dpsapodaos"},
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H', userId: "dpsapodaos"},
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H', userId: "dpsapodaos"},
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H', userId: "dpsapodaos"},
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H', userId: "dpsapodaos"},
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H', userId: "dpsapodaos"},
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H', userId: "dpsapodaos"},
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H', userId: "dpsapodaos"},
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H', userId: "dpsapodaos"},
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H', userId: "dpsapodaos"},
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H', userId: "dpsapodaos"},
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H', userId: "dpsapodaos"},
-];
-
+import { ApiService } from '../../shared/service/api.service';
+import { Appointment } from '../../shared/models/Appointment.model';
 
 @Component({
   selector: 'app-home',
@@ -30,7 +8,23 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./home.component.css']
 })
 
-export class HomeComponent {
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = ELEMENT_DATA;
+export class HomeComponent implements OnInit {
+  appointmentList: Appointment[];
+  displayedColumns: string[] = ['ESPECIALIDADE', 'PROFISSIONAL', 'DATA', 'HORA'];
+
+  constructor(
+    public apiService: ApiService
+  ) {}
+
+  ngOnInit(): void {
+    this.getAppointments();
+  }
+
+  // tslint:disable-next-line:typedef
+  getAppointments() {
+    this.apiService.getMedicalAppointments().subscribe(data => {
+      console.log(data);
+      this.appointmentList = data;
+    });
+  }
 }

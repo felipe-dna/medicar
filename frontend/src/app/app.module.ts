@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
+import { HttpClientModule } from '@angular/common/http';
 
 // Angular Material.
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -29,7 +30,8 @@ import { MatTableModule } from '@angular/material/table';
     MatIconModule,
     MatCardModule,
     MatButtonModule,
-    MatTableModule
+    MatTableModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
