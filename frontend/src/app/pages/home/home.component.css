@@ -78,3 +78,8 @@ table {
   width: 100%;
   box-shadow: none;
 }
+
+
+.mat-header-cell {
+  color: #A8A8A8
+}
