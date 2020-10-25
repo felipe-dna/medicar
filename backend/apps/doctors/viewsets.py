@@ -40,7 +40,7 @@ class DoctorViewSet(viewsets.ModelViewSet):
     def get_doctor_schedules(self, _: Request, pk: str) -> Response:
         """
         Manages the doctors/<pk/schedules resource.
-
+s
         Checks if the given user exists calling the retrieve method and then, tries to get
         the doctor schedules filtering by the given doctor id(pk). Finally, returns it as
         response.
@@ -54,10 +54,10 @@ class DoctorViewSet(viewsets.ModelViewSet):
         :return: A rest_framework.response.Response object with the serialized data.
         :rtype: rest_framework.response.Response.
         """
-        if not Doctor.objects.filter(id=pk).exists():
-            return Response({'error': 'Doctor not found.'}, status=404)
-
         doctor_schedule = DoctorSchedule.objects.filter(doctor__id=pk)
+
+        if not doctor_schedule.exists():
+            return Response({'error': 'Doctor not found.'}, status=404)
 
         self.serializer_class = DoctorScheduleSerializer
         serializer = self.get_serializer(doctor_schedule, many=True)
