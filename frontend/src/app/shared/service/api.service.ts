@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import {Appointment, AuthenticationResponse, Doctor, Schedule, Speciality, UserData} from '../models/Appointment.model';
+import { Appointment, AuthenticationResponse, Doctor, Schedule, Speciality, UserData } from '../models/Appointment.model';
 
 import { environment } from '../../../environments/environment';
 
@@ -15,7 +15,13 @@ export class ApiService {
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
-      Authorization: 'Token 2f19c8d5b3ef97e08f5328c6c6bdefaaff769a80',
+    })
+  };
+
+  httpAuthorizedOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: `token ${window.localStorage.getItem('token')}`
     })
   };
 
@@ -24,15 +30,15 @@ export class ApiService {
   ) {}
 
   public getMedicalAppointments(): Observable<Appointment[]> {
-    return this.httpClient.get<Appointment[]>(`${this.apiUrl}/appointments`, this.httpOptions);
+    return this.httpClient.get<Appointment[]>(`${this.apiUrl}/appointments`, this.httpAuthorizedOptions);
   }
 
   public getMedicalSpecialties(): Observable<Speciality[]> {
-    return this.httpClient.get<Speciality[]>(`${this.apiUrl}/specialties`, this.httpOptions);
+    return this.httpClient.get<Speciality[]>(`${this.apiUrl}/specialties`, this.httpAuthorizedOptions);
   }
 
   public getDoctorsBySpeciality(specialityId: string): Observable<Doctor[]> {
-    return this.httpClient.get<Doctor[]>(`${this.apiUrl}/doctors?speciality=${specialityId}`, this.httpOptions);
+    return this.httpClient.get<Doctor[]>(`${this.apiUrl}/doctors?speciality=${specialityId}`, this.httpAuthorizedOptions);
   }
 
   public getDoctorSchedulesByDate(doctorId: string, date: string = null): Observable<Schedule[]> {
@@ -41,15 +47,15 @@ export class ApiService {
         url = `${this.apiUrl}/doctors/${doctorId}/schedules?date=${date}` :
         url = `${this.apiUrl}/doctors/${doctorId}/schedules`
       );
-    return this.httpClient.get<Schedule[]>(url, this.httpOptions);
+    return this.httpClient.get<Schedule[]>(url, this.httpAuthorizedOptions);
   }
 
   public authenticateUser(credentials: {}): Observable<AuthenticationResponse> {
     return this.httpClient
-      .post<AuthenticationResponse>(`${this.apiUrl}/users/login`, credentials, this.httpOptions)
+      .post<AuthenticationResponse>(`${this.apiUrl}/users/login`, credentials, this.httpOptions);
   }
 
   public getUserData(): Observable<UserData> {
-    return this.httpClient.get<UserData>(`${this.apiUrl}/users`, this.httpOptions);
+    return this.httpClient.get<UserData>(`${this.apiUrl}/users`, this.httpAuthorizedOptions);
   }
 }

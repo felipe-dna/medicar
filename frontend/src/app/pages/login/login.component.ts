@@ -28,16 +28,15 @@ export class LoginComponent implements OnInit {
   }
 
   getUserData(): void {
-    this.apiService.getUserData().subscribe(data => {
+    this.apiService.getUserData().toPromise().then(data => {
       window.localStorage.setItem('userName', data[0].name);
-    });
+    }).then(() => this.router.navigate(['']));
   }
 
   authenticateUser(credentials): void {
     this.apiService.authenticateUser(credentials).subscribe(data => {
-      this.getUserData();
       window.localStorage.setItem('token', data.token);
-      this.router.navigate(['']);
+      this.getUserData();
     },
       error => { console.log(error); }
     );
