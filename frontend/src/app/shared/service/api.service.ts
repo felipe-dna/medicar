@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Appointment, Doctor, Speciality } from '../models/Appointment.model';
+import {Appointment, Doctor, Schedule, Speciality} from '../models/Appointment.model';
 
 import { environment } from '../../../environments/environment';
 
@@ -33,5 +33,14 @@ export class ApiService {
 
   public getDoctorsBySpeciality(specialityId: string): Observable<Doctor[]> {
     return this.httpClient.get<Doctor[]>(`${this.apiUrl}/doctors?speciality=${specialityId}`, this.httpOptions);
+  }
+
+  public getDoctorSchedulesByDate(doctorId: string, date: string = null): Observable<Schedule[]> {
+    let url: string;
+    (date !== null ?
+        url = `${this.apiUrl}/doctors/${doctorId}/schedules?date=${date}` :
+        url = `${this.apiUrl}/doctors/${doctorId}/schedules`
+      );
+    return this.httpClient.get<Schedule[]>(url, this.httpOptions);
   }
 }
