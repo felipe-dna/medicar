@@ -10,6 +10,24 @@
           <option *ngFor="let speciality of specialties" [value]="speciality.id">{{ speciality.name }}</option>
         </select>
       </div>
+      <div class="select-div">
+        <select name="Especialidade" id="doctor" disabled>
+          <option value="select">Médico</option>
+          <option *ngFor="let speciality of specialties" [value]="speciality.id">{{ speciality.name }}</option>
+        </select>
+      </div>
+      <div class="select-div">
+        <select name="Especialidade" id="date" disabled>
+          <option value="select">Data</option>
+          <option *ngFor="let speciality of specialties" [value]="speciality.id">{{ speciality.name }}</option>
+        </select>
+      </div>
+      <div class="select-div">
+        <select name="Especialidade" id="time" disabled>
+          <option value="select">Hora</option>
+          <option *ngFor="let speciality of specialties" [value]="speciality.id">{{ speciality.name }}</option>
+        </select>
+      </div>
     </form>
   </div>
   <div class="mat-dialog-actions">

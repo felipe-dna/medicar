@@ -43,7 +43,7 @@
   color: #A8A8A8;
 
   right: 11px;
-  top: 2px;
+  top: 5px;
   position: absolute;
   pointer-events: none;
 
@@ -61,7 +61,7 @@ select {
   min-width: 15ch;
   width: 100%;
   margin: 0;
-  padding: .6em 1.4em .5em .8em;
+  padding: 12px 8px;
 
   box-sizing: border-box;
   border: 1px solid #A8A8A8;
@@ -81,20 +81,8 @@ select::-ms-expand {
      display: none;
 }
 
-#dialog-container .mat-dialog-content .add-appointment-form select:active,
-#dialog-container .mat-dialog-content .add-appointment-form select:hover.active,
-#dialog-container .mat-dialog-content .add-appointment-form select:focus,
-#dialog-container .mat-dialog-content .add-appointment-form select:hover,
-#dialog-container .mat-dialog-content .add-appointment-form select:optional,
-#dialog-container .mat-dialog-content .add-appointment-form select:out-of-range,
-#dialog-container .mat-dialog-content .add-appointment-form select:read-only,
-#dialog-container .mat-dialog-content .add-appointment-form select:read-write,
-#dialog-container .mat-dialog-content .add-appointment-form select:hover,
-#dialog-container .mat-dialog-content .add-appointment-form select:target,
-#dialog-container .mat-dialog-content .add-appointment-form select:valid,
-#dialog-container .mat-dialog-content .add-appointment-form select:enabled,
-#dialog-container .mat-dialog-content .add-appointment-form select:checked {
-  border: 1px solid #A8A8A8;
+#dialog-container .mat-dialog-content .add-appointment-form select:disabled {
+  background-color: #F8F8F8;
 }
 
 
