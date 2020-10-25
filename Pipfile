@@ -9,6 +9,8 @@ django-rest-framework = "*"
 django-admin-interface = "*"
 drf-writable-nested = "*"
 django-filter = "*"
+django-cors-headers = "*"
+python-decouple = "*"
 
 [dev-packages]
 isort = "*"
