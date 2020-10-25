@@ -3,6 +3,8 @@ Contains the appointments app serializers.
 
 https://www.django-rest-framework.org/api-guide/serializers/
 """
+from rest_framework import serializers
+
 from drf_writable_nested import WritableNestedModelSerializer
 
 from .models import Appointment
@@ -23,6 +25,7 @@ class AppointmentDoctorSerializer(WritableNestedModelSerializer):
 class AppointmentSerializer(WritableNestedModelSerializer):
     """Define a serialized used in the appointment resource."""
     doctor = AppointmentDoctorSerializer(many=False)
+    time = serializers.TimeField(format='%H:%M')
 
     class Meta:
         model = Appointment
