@@ -1,7 +1,7 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import {ApiService} from '../../../../shared/service/api.service';
-import {Doctor, Speciality} from '../../../../shared/models/Appointment.model';
+import { ApiService } from '../../../../shared/service/api.service';
+import { Doctor, Speciality } from '../../../../shared/models/Appointment.model';
 
 export interface AppointmentData {
   speciality: string;
