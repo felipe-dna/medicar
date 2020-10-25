@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Appointment, Speciality } from '../models/Appointment.model';
+import {Appointment, Doctor, Speciality} from '../models/Appointment.model';
 
 import { environment } from '../../../environments/environment';
 
@@ -29,5 +29,9 @@ export class ApiService {
 
   public getMedicalSpecialties(): Observable<Speciality[]> {
     return this.httpClient.get<Speciality[]>(`${this.apiUrl}/specialties`, this.httpOptions);
+  }
+
+  public getDoctorsBySpeciality(specialityId: string): Observable<Speciality[]> {
+    return this.httpClient.get<Speciality[]>(`${this.apiUrl}/doctors?speciality=${specialityId}`, this.httpOptions);
   }
 }
