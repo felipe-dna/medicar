@@ -71,7 +71,7 @@ select {
   font-weight: normal;
   font-size: 13px;
   line-height: 15px;
-  color: #A8A8A8;
+  color: #444444;
 
   background-color: transparent;
   cursor: pointer;
@@ -92,4 +92,26 @@ select::-ms-expand {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+}
+
+
+button {
+  width: 180px;
+  height: 40px;
+  border-radius: 8px;
+  font-size: 18px;
+}
+
+button.decline-button {
+  color: #49B4BB;
+}
+
+button.confirm-button {
+  background-color: #49B4BB;
+  color: #FFF;
+}
+
+button.confirm-button:disabled {
+  background-color: #D9F1F3;
+  color: #FFF;
 }

@@ -11,8 +11,9 @@ export interface AppointmentData {
 }
 
 export interface AppointmentBodyParameters {
-  doctor: string;
-  date: string;
+  doctor_id: string;
+  patient_id: string;
+  day: string;
   time: string;
 }
 
@@ -28,10 +29,12 @@ export class AppointmentFormComponent implements OnInit {
   public schedules: Schedule[];
   public availableTimes: AvailableTime[];
   public newAppointment: AppointmentBodyParameters = {
-    doctor: null,
-    date: null,
+    doctor_id: null,
+    patient_id: window.localStorage.getItem('userId'),
+    day: null,
     time: null
   };
+  public formReady = false;
 
   constructor(
     public apiService: ApiService,
@@ -45,6 +48,10 @@ export class AppointmentFormComponent implements OnInit {
 
   onNoClick(): void {
     this.dialogRef.close();
+  }
+
+  onClick(): void  {
+    this.createNewAppointment(this.newAppointment);
   }
 
   onSelectChanges(event): void {
@@ -63,7 +70,7 @@ export class AppointmentFormComponent implements OnInit {
         break;
       }
       case 'doctor': {
-        this.newAppointment.doctor = value;
+        this.newAppointment.doctor_id = value;
         this.getDoctorsSchedule(value);
         dateInput.removeAttribute('disabled');
         break;
@@ -73,12 +80,12 @@ export class AppointmentFormComponent implements OnInit {
         this.getDoctorsSchedule(doctorInput.value, value);
         this.availableTimes = this.schedules[0].available_times;
         timeInput.removeAttribute('disabled');
-        this.newAppointment.date = value;
+        this.newAppointment.day = value;
         break;
       }
       case 'time': {
         this.newAppointment.time = value;
-        console.log(this.newAppointment);
+        this.formReady = true;
         break;
       }
     }
@@ -95,6 +102,11 @@ export class AppointmentFormComponent implements OnInit {
   getDoctorsSchedule(doctorId: string, date: string = null): void {
     this.apiService.getDoctorSchedulesByDate(doctorId, date).subscribe(data => {
       this.schedules = data;
+    });
+  }
+  public createNewAppointment(bodyParameters: AppointmentBodyParameters): void {
+    this.apiService.createNewAppointment(bodyParameters).subscribe(() => {
+      window.location.reload();
     });
   }
 }

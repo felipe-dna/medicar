@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Appointment, AuthenticationResponse, Doctor, Schedule, Speciality, UserData } from '../models/Appointment.model';
 
 import { environment } from '../../../environments/environment';
+import {AppointmentBodyParameters} from '../../pages/home/components/appointment-form/appointment-form.component';
 
 @Injectable({
   providedIn: 'root'
@@ -57,5 +58,10 @@ export class ApiService {
 
   public getUserData(): Observable<UserData> {
     return this.httpClient.get<UserData>(`${this.apiUrl}/users`, this.httpAuthorizedOptions);
+  }
+
+  public createNewAppointment(bodyParameters: AppointmentBodyParameters): Observable<Appointment[]> {
+    console.log(this.httpAuthorizedOptions);
+    return this.httpClient.post<Appointment[]>(`${this.apiUrl}/appointments`, bodyParameters, this.httpAuthorizedOptions);
   }
 }

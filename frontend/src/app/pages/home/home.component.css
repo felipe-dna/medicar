@@ -15,7 +15,6 @@
 
 .toolbar {
   background-color: #FFF;
-
   display: flex;
   align-items: center
 }
@@ -90,4 +89,34 @@ table {
 
 .mat-header-cell {
   color: #A8A8A8
+}
+
+.decline-button {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 15px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #49B4BB;
+  text-decoration: none;
+}
+
+.decline-button-icon {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 15px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+}
+
+.decline-button:hover {
+  cursor: pointer;
+}
+
+.decline-button-icon:hover {
+  cursor: pointer;
 }

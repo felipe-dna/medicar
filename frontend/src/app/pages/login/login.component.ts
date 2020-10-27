@@ -27,8 +27,9 @@ export class LoginComponent implements OnInit {
     this.authenticateUser(this.login);
   }
 
-  getUserData(): void {
+  setUserData(): void {
     this.apiService.getUserData().toPromise().then(data => {
+      window.localStorage.setItem('userId', data[0].id);
       window.localStorage.setItem('userName', data[0].name);
     }).then(() => this.router.navigate(['']));
   }
@@ -36,7 +37,7 @@ export class LoginComponent implements OnInit {
   authenticateUser(credentials): void {
     this.apiService.authenticateUser(credentials).subscribe(data => {
       window.localStorage.setItem('token', data.token);
-      this.getUserData();
+      this.setUserData();
     },
       error => { console.log(error); }
     );

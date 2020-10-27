@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../shared/service/api.service';
-import { Appointment, UserData } from '../../shared/models/Appointment.model';
+import { Appointment } from '../../shared/models/Appointment.model';
 import { MatDialog } from '@angular/material/dialog';
-import { AppointmentFormComponent } from './components/appointment-form/appointment-form.component';
+import { AppointmentFormComponent} from './components/appointment-form/appointment-form.component';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +13,7 @@ import { AppointmentFormComponent } from './components/appointment-form/appointm
 export class HomeComponent implements OnInit {
   public userName: string;
   appointmentList: Appointment[];
-  displayedColumns: string[] = ['ESPECIALIDADE', 'PROFISSIONAL', 'DATA', 'HORA'];
+  displayedColumns: string[] = ['ESPECIALIDADE', 'PROFISSIONAL', 'DATA', 'HORA', 'TOOLS'];
   speciality: string;
   doctor: string;
   date: string;

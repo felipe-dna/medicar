@@ -6,12 +6,17 @@ export class Speciality {
 export class Doctor {
   id: string;
   name: string;
+  crm: number;
   speciality: Speciality;
 }
 
 export class Appointment {
   id: string;
+  doctor: Doctor;
+  day: string;
   time: string;
+  // tslint:disable-next-line:variable-name
+  created_at: string;
 }
 
 export class AvailableTime {
@@ -35,5 +40,5 @@ export class AuthenticationResponse {
 }
 
 export class UserData {
-  name: string
+  name: string;
 }
