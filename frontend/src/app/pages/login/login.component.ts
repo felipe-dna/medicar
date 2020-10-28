@@ -13,6 +13,11 @@ export class LoginComponent implements OnInit {
     email: '',
     password: ''
   };
+  public loginFormStateControl = {
+    email: null,
+    password: null,
+    non_field_errors: null
+  };
 
   constructor(
     public apiService: ApiService,
@@ -35,11 +40,14 @@ export class LoginComponent implements OnInit {
   }
 
   async authenticateUser(credentials): Promise<void> {
-    this.apiService.authenticateUser(credentials).subscribe(async data => {
-      window.localStorage.setItem('token', data.token);
-      await this.setUserData();
-    },
-      error => { console.log(error); }
+    this.apiService.authenticateUser(credentials).subscribe(
+      async data => {
+        window.localStorage.setItem('token', data.token);
+        await this.setUserData();
+      },
+      error => {
+        this.loginFormStateControl = {...error.error};
+      }
     );
   }
 }

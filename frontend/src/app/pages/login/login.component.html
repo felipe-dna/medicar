@@ -3,10 +3,18 @@
     <span><img src="assets/logo.png" alt="logo" height="50" /></span>
     <div class="form-fields">
       <div>
+        <span class="error" *ngIf="loginFormStateControl.non_field_errors">
+          {{ loginFormStateControl.non_field_errors }}
+        </span>
+      </div>
+      <div>
         <label class="outlined-text-field">
           <input placeholder=" " name="email" type="email" [(ngModel)]="login.email" required>
           <span>Email ou Login</span>
         </label>
+        <span class="error" *ngIf="loginFormStateControl.email">
+          {{ loginFormStateControl.email }}
+        </span>
       </div>
 
       <div>
@@ -17,6 +25,9 @@
             <i class="material-icons">{{hidePassword ? 'visibility_off' : 'visibility'}}</i>
           </a>
         </label>
+        <span class="error" *ngIf="loginFormStateControl.password">
+          {{ loginFormStateControl.password }}
+        </span>
       </div>
       <div class="checkbox-row"><mat-checkbox class="form-checkbox">Lembrar minha senha</mat-checkbox></div>
     </div>
