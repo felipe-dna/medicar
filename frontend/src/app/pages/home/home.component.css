@@ -1,0 +1,153 @@
+.main-container {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 0 27.5%;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.toolbar {
+  background-color: #FFF;
+  display: flex;
+  align-items: center
+}
+
+.toolbar-buttons-container a {
+  margin-left: 40px;
+  font-size: 1.5vh;
+  text-decoration: none;
+}
+
+.user-name {
+  color: #A8A8A8;
+}
+
+.logout-button {
+  color: #49B4BB;
+}
+
+.body-card {
+  width: 100%;
+  padding: 18px 8px;
+}
+
+.card-actions {
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+
+  padding: 0;
+  margin: 0;
+}
+
+.card-title {
+  color: #444;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 21px;
+  margin: 0;
+}
+
+.new-appointment-button {
+  width: 150px;
+  height: 24px;
+  padding: 0 15px;
+
+  background: #49B4BB;
+  color: #fff;
+
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 12px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.add-appointment-icon {
+  font-size: 20px;
+}
+
+table {
+  width: 100%;
+  box-shadow: none;
+  margin: 17px 0 0 0 !important;
+  padding: 0;
+}
+
+table thead {
+  border: none !important;
+}
+
+table thead tr th {
+  font-style: normal;
+  font-weight: normal !important;
+  font-size: 12px;
+  line-height: 14px;
+  text-transform: uppercase;
+  color: #A8A8A8;
+}
+
+table tbody tr th {
+  font-style: normal;
+  font-weight: normal !important;
+  font-size: 13px;
+  line-height: 15px;
+  color: #444444;
+}
+
+table tbody tr th.decline-button-container {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-items: right !important;
+}
+
+.decline-button {
+  display: flex;
+  flex-direction: row;
+
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 15px;
+  align-items: center;
+  text-align: center;
+  color: #49B4BB;
+  text-decoration: none;
+
+  box-sizing: border-box;
+  border-bottom: 1px solid transparent;
+}
+
+.decline-button-icon {
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 15px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+.decline-button:hover {
+  cursor: pointer;
+  border-bottom-color: #49B4BB;
+}
+
+.decline-button-icon:hover {
+  cursor: pointer;
+}

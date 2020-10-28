@@ -5,12 +5,14 @@ https://www.django-rest-framework.org/api-guide/viewsets/
 """
 
 from django_filters.rest_framework import DjangoFilterBackend
+
 from rest_framework import filters, viewsets
 from rest_framework.decorators import action
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.request import Request
 from rest_framework.response import Response
 
+from ..schedules.filtersets import DoctorScheduleFilter
 from ..schedules.models import DoctorSchedule
 from ..schedules.serializers import DoctorScheduleSerializer
 from .filtersets import DoctorFilter
@@ -54,14 +56,14 @@ class DoctorViewSet(viewsets.ModelViewSet):
         :return: A rest_framework.response.Response object with the serialized data.
         :rtype: rest_framework.response.Response.
         """
-        if not Doctor.objects.filter(id=pk).exists():
-            return Response({'error': 'Doctor not found.'}, status=404)
+        self.queryset = DoctorSchedule.objects.filter(doctor__id=pk)
+        self.filterset_class = DoctorScheduleFilter
 
-        doctor_schedule = DoctorSchedule.objects.filter(doctor__id=pk)
+        doctor_schedule = self.filter_queryset(self.queryset)
 
         self.serializer_class = DoctorScheduleSerializer
-        serializer = self.get_serializer(doctor_schedule, many=True)
 
+        serializer = self.get_serializer(doctor_schedule, many=True)
         response = Response(serializer.data)
 
         return response

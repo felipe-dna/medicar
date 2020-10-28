@@ -1,0 +1,37 @@
+<div id="dialog-container">
+  <h3 class="mat-dialog-title">Nova consulta</h3>
+
+  <div class="mat-dialog-content">
+
+    <form class="add-appointment-form">
+      <div class="select-div">
+        <select name="Especialidade" id="speciality" (change)="onSelectChanges($event)">
+          <option value="default">Especialidade</option>
+          <option *ngFor="let speciality of specialties" [value]="speciality.id">{{ speciality.name }}</option>
+        </select>
+      </div>
+      <div class="select-div">
+        <select name="Médico" id="doctor" (change)="onSelectChanges($event)" disabled>
+          <option value="default">Médico</option>
+          <option *ngFor="let doctor of doctors" [value]="doctor.id">{{ doctor.name }}</option>
+        </select>
+      </div>
+      <div class="select-div">
+        <select name="Data" id="date" (change)="onSelectChanges($event)" disabled>
+          <option value="default">Data</option>
+          <option *ngFor="let schedule of schedules" [value]="schedule.day">{{ schedule.day | date: 'dd/MM/yyyy' }}</option>
+        </select>
+      </div>
+      <div class="select-div">
+        <select name="Hora" id="time" (change)="onSelectChanges($event)" disabled>
+          <option value="default">Hora</option>
+          <option *ngFor="let time of availableTimes" [value]="time.time">{{ time.time }}</option>
+        </select>
+      </div>
+    </form>
+  </div>
+  <div class="mat-dialog-actions">
+    <button mat-button (click)="closeModal()" class="decline-button">Cancelar</button>
+    <button mat-button (click)="addNewAppointment($event)" class="confirm-button" [disabled]="!formReady">Confirmar</button>
+</div>
+</div>

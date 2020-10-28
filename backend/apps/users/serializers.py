@@ -61,3 +61,27 @@ class LoginSerializer(serializers.Serializer):
         parameters['user'] = user
 
         return parameters
+
+
+class UserSerializer(serializers.ModelSerializer):
+    """Define a serialized used in the users resource."""
+
+    password = serializers.CharField(write_only=True)
+
+    def create(self, validated_data) -> User:
+        """
+        Override the create method to call the User.objects.create_user method.
+
+        :param validated_data: The validated body parameters.
+        :type validated_data: Dict[str, Any]
+
+        :return: The created user.
+        :rtype: User.
+        """
+        created_user = User.objects.create_user(**validated_data)
+        return created_user
+
+    class Meta:
+        model = User
+        fields = ('id', 'name', 'email', 'password')
+        read_only_fields = ('id',)

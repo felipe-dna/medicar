@@ -138,3 +138,9 @@ backend/static/*
 
 # Django Migrations
 **/migrations/
+
+
+# Node modules
+**/node_modules
+
+# **/.env

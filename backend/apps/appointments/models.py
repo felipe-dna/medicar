@@ -3,7 +3,7 @@
 from django.db import models
 from django.db.models import QuerySet
 from django.utils.translation import ugettext_lazy as _
-from django.core.exceptions import ValidationError
+from rest_framework.exceptions import ValidationError
 
 from ..base.models import UUIDTimeControlModel
 from ..doctors.models import Doctor
@@ -43,10 +43,10 @@ class Appointment(UUIDTimeControlModel):
         )
 
         if not doctor_schedule.exists():
-            raise ValidationError(_("This doctor does not have schedule for this day."))
+            raise ValidationError(detail=_("This doctor does not have schedule for this day."))
 
         if not doctor_schedule[0].available_times.filter(time=self.time).exists():
-            raise ValidationError(_("This doctor is not available at this time."))
+            raise ValidationError(detail=_("This doctor is not available at this time."))
 
     def save(self, *args, **kwargs) -> None:
         """

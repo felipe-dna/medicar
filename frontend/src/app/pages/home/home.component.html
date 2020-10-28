@@ -1,0 +1,43 @@
+<div class="main-container">
+  <!-- Toolbar -->
+  <mat-toolbar class="toolbar">
+    <mat-toolbar-row>
+      <span><img src="assets/logo.png" alt="logo" height="25" /></span>
+      <span class="spacer"></span>
+      <span class="toolbar-buttons-container">
+        <a class="user-name">{{ userName }}</a>
+        <a [routerLink]="['/logout']" class="logout-button">Desconectar</a>
+      </span>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <!-- Card -->
+  <mat-card class="body-card" width="100%" >
+    <mat-card-actions class="card-actions">
+      <div class="card-title">Consulta Clínica</div>
+      <div class="right-buttons-container">
+        <button class="new-appointment-button" mat-icon-button (click)="openDialog()">
+          <mat-icon class="add-appointment-icon" >add</mat-icon>
+          Nova Consulta
+        </button>
+      </div>
+    </mat-card-actions>
+    <mat-card-content>
+      <table class="striped highlight responsive-table">
+        <thead><tr><th *ngFor="let headTitle of displayedColumns">{{ headTitle }}</th></tr></thead>
+        <tbody>
+          <tr *ngFor="let appointment of appointmentList">
+            <th>{{ appointment.doctor.speciality.name }}</th>
+            <th>{{ appointment.doctor.name }}</th>
+            <th>{{ appointment.day | date: 'dd/MM/yyyy' }}</th>
+            <th>{{ appointment.time }}</th>
+            <th class="decline-button-container">
+              <a class="decline-button" (click)="removeAppointment(appointment.id)">
+                <i class="material-icons decline-button-icon">close</i> Desmarcar</a>
+            </th>
+          </tr>
+        </tbody>
+      </table>
+    </mat-card-content>
+  </mat-card>
+</div>
