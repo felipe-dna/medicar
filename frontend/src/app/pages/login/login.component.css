@@ -19,6 +19,13 @@
   flex-direction : column;
 }
 
+span.error {
+  display: inline-block;
+  margin-bottom: 20px;
+
+  color: #ff5555;
+}
+
 .form-container .form-fields {
   width: 400px;
   min-height: 160px !important;
