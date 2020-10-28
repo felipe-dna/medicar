@@ -63,4 +63,8 @@ export class ApiService {
   public createNewAppointment(bodyParameters: AppointmentBodyParameters): Observable<Appointment[]> {
     return this.httpClient.post<Appointment[]>(`${this.apiUrl}/appointments`, bodyParameters, this.httpAuthorizedOptions);
   }
+
+  public deleteAppointment(appointmentId: string): Observable<null> {
+    return this.httpClient.delete<null>(`${this.apiUrl}/appointments/${appointmentId}`, this.httpAuthorizedOptions);
+  }
 }

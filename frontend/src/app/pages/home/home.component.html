@@ -31,7 +31,10 @@
             <th>{{ appointment.doctor.name }}</th>
             <th>{{ appointment.day | date: 'dd/MM/yyyy' }}</th>
             <th>{{ appointment.time }}</th>
-            <th class="decline-button-container"><a class="decline-button"><i class="material-icons decline-button-icon">close</i> Desmarcar</a></th>
+            <th class="decline-button-container">
+              <a class="decline-button" (click)="removeAppointment(appointment.id)">
+                <i class="material-icons decline-button-icon">close</i> Desmarcar</a>
+            </th>
           </tr>
         </tbody>
       </table>

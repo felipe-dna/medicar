@@ -3,7 +3,7 @@
 
   <div class="mat-dialog-content">
 
-    <form action="" class="add-appointment-form">
+    <form class="add-appointment-form">
       <div class="select-div">
         <select name="Especialidade" id="speciality" (change)="onSelectChanges($event)">
           <option value="default">Especialidade</option>
@@ -19,6 +19,7 @@
       <div class="select-div">
         <select name="Data" id="date" (change)="onSelectChanges($event)" disabled>
           <option value="default">Data</option>
+          <option value="default">dadsdsa</option>
           <option *ngFor="let schedule of schedules" [value]="schedule.day">{{ schedule.day | date: 'dd/MM/yyyy' }}</option>
         </select>
       </div>

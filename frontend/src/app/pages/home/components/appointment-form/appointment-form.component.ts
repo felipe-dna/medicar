@@ -56,7 +56,6 @@ export class AppointmentFormComponent implements OnInit {
   }
 
   onSelectChanges(event): void {
-    const specialityInput = document.querySelector('#speciality');
     const doctorInput = document.querySelector('#doctor');
     const dateInput = document.querySelector('#date');
     const timeInput = document.querySelector('#time');
@@ -67,21 +66,21 @@ export class AppointmentFormComponent implements OnInit {
     switch (targetInput.id) {
       case 'speciality': {
         this.getDoctors(value);
+
         doctorInput.removeAttribute('disabled');
         break;
       }
       case 'doctor': {
         this.newAppointment.doctor_id = value;
         this.getDoctorsSchedule(value);
+
         dateInput.removeAttribute('disabled');
         break;
       }
       case 'date': {
-        // @ts-ignore
-        this.getDoctorsSchedule(doctorInput.value, value);
-        this.availableTimes = this.schedules[0].available_times;
-        timeInput.removeAttribute('disabled');
         this.newAppointment.day = value;
+        this.getDoctorsSchedule(this.newAppointment.doctor_id, value);
+        timeInput.removeAttribute('disabled');
         break;
       }
       case 'time': {
@@ -102,7 +101,7 @@ export class AppointmentFormComponent implements OnInit {
   }
   getDoctorsSchedule(doctorId: string, date: string = null): void {
     this.apiService.getDoctorSchedulesByDate(doctorId, date).subscribe(data => {
-      this.schedules = data;
+      date ? this.availableTimes = data[0].available_times : this.schedules = data;
     });
   }
   public createNewAppointment(bodyParameters: AppointmentBodyParameters): void {
