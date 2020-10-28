@@ -33,17 +33,10 @@
 .form-container .form-fields {
   width: 400px;
   min-height: 220px !important;
+  height: auto !important;
   margin-top: 20px;
-}
-
-.main-container {
-  width: 100%;
-  height: 100%;
-
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
 }
 
 .form-container {
@@ -52,11 +45,13 @@
   flex-direction : column;
 }
 
-.form-container .form-fields {
-  width: 400px;
-  height: 110px !important;
-  margin-top: 20px;
+span.error {
+  display: inline-block;
+  margin-bottom: 20px;
+
+  color: #ff5555;
 }
+
 
 .outlined-text-field{
   --pure-material-safari-helper1: var(--gray);
@@ -293,9 +288,11 @@
   align-items: center;
   text-align: center;
   justify-content: space-between;
+  cursor: pointer;
 }
 
-.form-buttons .primary-button:hover {
+.form-buttons .primary-button:hover,
+.form-buttons .primary-button:disabled {
   background-color: #90D3D7;
   border-color: #90D3D7;
 }

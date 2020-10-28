@@ -40,5 +40,13 @@ export class AuthenticationResponse {
 }
 
 export class UserData {
+  id: string;
+  name: string;
+  email: string;
+}
+
+export class RegisterUserBodyParameters {
+  email: string;
+  password: string;
   name: string;
 }

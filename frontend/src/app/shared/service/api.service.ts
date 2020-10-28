@@ -1,7 +1,15 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {Appointment, AuthenticationResponse, Doctor, Schedule, Speciality, UserData} from '../models/Appointment.model';
+import {
+  Appointment,
+  AuthenticationResponse,
+  Doctor,
+  RegisterUserBodyParameters,
+  Schedule,
+  Speciality,
+  UserData
+} from '../models/Appointment.model';
 
 import {environment} from '../../../environments/environment';
 import {AppointmentBodyParameters} from '../../pages/home/components/appointment-form/appointment-form.component';
@@ -66,5 +74,9 @@ export class ApiService {
 
   public deleteAppointment(appointmentId: string): Observable<null> {
     return this.httpClient.delete<null>(`${this.apiUrl}/appointments/${appointmentId}`, this.httpAuthorizedOptions);
+  }
+
+  public registerUser(bodyParameters: RegisterUserBodyParameters): Observable<UserData> {
+    return this.httpClient.post<UserData>(`${this.apiUrl}/users`, bodyParameters, this.httpOptions);
   }
 }
