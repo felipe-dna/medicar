@@ -19,7 +19,6 @@
       <div class="select-div">
         <select name="Data" id="date" (change)="onSelectChanges($event)" disabled>
           <option value="default">Data</option>
-          <option value="default">dadsdsa</option>
           <option *ngFor="let schedule of schedules" [value]="schedule.day">{{ schedule.day | date: 'dd/MM/yyyy' }}</option>
         </select>
       </div>
