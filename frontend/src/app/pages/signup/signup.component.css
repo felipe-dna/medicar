@@ -1,0 +1,340 @@
+:root {
+  --primary-green: #49b4bb;
+  --gray: #A8A8A8;
+}
+
+.main-container {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-container {
+  width: 400px;
+  display: flex;
+  flex-direction : column;
+}
+
+.form-container .form-fields {
+  width: 400px;
+  min-height: 220px !important;
+  margin-top: 20px;
+}
+
+.main-container {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-container {
+  width: 400px;
+  display: flex;
+  flex-direction : column;
+}
+
+.form-container .form-fields {
+  width: 400px;
+  height: 110px !important;
+  margin-top: 20px;
+}
+
+.outlined-text-field{
+  --pure-material-safari-helper1: var(--gray);
+  position: relative;
+  display: inline-block;
+  padding-top: 6px;
+  font-family: var(--pure-material-font, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
+  font-size: 13px;
+  line-height: 1.5;
+  overflow: hidden;
+  width: 100%;
+  height: 50px;
+}
+
+/* Input, Textarea */
+.outlined-text-field> input,
+.outlined-text-field> textarea {
+  width: 100%;
+  height: 40px;
+  margin: 0;
+  padding: 12px 8px 13px 8px;
+  background-color: transparent;
+
+  box-sizing: border-box;
+  box-shadow: none; /* Firefox */
+  border: solid 1px; /* Safari */
+  border-color: var(--gray);
+  border-top-color: transparent;
+  border-radius: 4px;
+
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  caret-color: var(--gray);
+  color: var(--gray);
+
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+/* Span */
+.outlined-text-field> input + span,
+.outlined-text-field> textarea + span {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 50px;
+  max-height: 100%;
+
+  display: flex;
+  border-color: var(--gray);
+
+  color: var(--gray);
+  font-size: 75%;
+  line-height: 15px;
+
+  cursor: text;
+  transition: color 0.2s, font-size 0.2s, line-height 0.2s;
+}
+
+/* Corners */
+.outlined-text-field> input + span::before,
+.outlined-text-field> input + span::after,
+.outlined-text-field> textarea + span::before,
+.outlined-text-field> textarea + span::after {
+  content: "";
+  min-width: 10px;
+  height: 8px;
+  margin-top: 6px;
+
+  display: block;
+
+  box-sizing: border-box;
+  border-top: solid 1px;
+  border-top-color: var(--gray);
+
+  pointer-events: none;
+  transition: border-color 0.2s;
+}
+
+.outlined-text-field> input + span::before,
+.outlined-text-field> textarea + span::before {
+  margin-right: 4px;
+  border-left: solid 1px transparent;
+  border-radius: 4px 0;
+}
+
+.outlined-text-field> input + span::after,
+.outlined-text-field> textarea + span::after {
+  margin-left: 4px;
+
+  flex-grow: 1;
+  border-right: solid 1px transparent;
+  border-radius: 0 4px;
+}
+
+/* Hover */
+.pure-material-textfield-outlined:hover > input,
+.pure-material-textfield-outlined:hover > textarea {
+  border-color: var(--gray);
+  border-top-color: transparent;
+}
+
+.pure-material-textfield-outlined:hover > input + span::before,
+.pure-material-textfield-outlined:hover > textarea + span::before,
+.pure-material-textfield-outlined:hover > input + span::after,
+.pure-material-textfield-outlined:hover > textarea + span::after {
+  border-top-color: var(--gray);
+}
+
+.pure-material-textfield-outlined:hover > input:not(:focus):placeholder-shown,
+.pure-material-textfield-outlined:hover > textarea:not(:focus):placeholder-shown {
+    border-color: var(--gray);
+}
+
+/* Placeholder-shown */
+.outlined-text-field> input:not(:focus):placeholder-shown,
+.outlined-text-field> textarea:not(:focus):placeholder-shown {
+    border-top-color:var(--gray);
+}
+
+.outlined-text-field> input:not(:focus):placeholder-shown + span,
+.outlined-text-field> textarea:not(:focus):placeholder-shown + span {
+  font-size: 13px !important;
+  line-height: 53px;
+}
+
+.outlined-text-field> input:not(:focus):placeholder-shown + span::before,
+.outlined-text-field> textarea:not(:focus):placeholder-shown + span::before,
+.outlined-text-field> input:not(:focus):placeholder-shown + span::after,
+.outlined-text-field> textarea:not(:focus):placeholder-shown + span::after {
+  border-top-color: transparent;
+}
+
+/* Focus */
+.outlined-text-field> input:focus,
+.outlined-text-field> textarea:focus {
+  border-color: #49B4BB;
+  border-top-color: transparent;
+  outline: none;
+}
+
+.outlined-text-field> input:focus + span,
+.outlined-text-field> textarea:focus + span {
+  color: #49B4BB;
+}
+
+.outlined-text-field> input:focus + span::before,
+.outlined-text-field> input:focus + span::after,
+.outlined-text-field> textarea:focus + span::before,
+.outlined-text-field> textarea:focus + span::after {
+  border-top-color: #49B4BB !important;
+}
+
+/* Disabled */
+.outlined-text-field> input:disabled,
+.outlined-text-field> input:disabled + span,
+.outlined-text-field> textarea:disabled,
+.outlined-text-field> textarea:disabled + span {
+  border-color: #49B4BB !important;
+  border-top-color: transparent !important;
+  color: #49B4BB;
+  pointer-events: none;
+}
+
+.outlined-text-field> input:disabled + span::before,
+.outlined-text-field> input:disabled + span::after,
+.outlined-text-field> textarea:disabled + span::before,
+.outlined-text-field> textarea:disabled + span::after {
+  border-top-color: #49B4BB !important;
+}
+
+.outlined-text-field> input:disabled:placeholder-shown,
+.outlined-text-field> input:disabled:placeholder-shown + span,
+.outlined-text-field> textarea:disabled:placeholder-shown,
+.outlined-text-field> textarea:disabled:placeholder-shown + span {
+  border-top-color: #49B4BB !important;
+}
+
+.outlined-text-field> input:disabled:placeholder-shown + span::before,
+.outlined-text-field> input:disabled:placeholder-shown + span::after,
+.outlined-text-field> textarea:disabled:placeholder-shown + span::before,
+.outlined-text-field> textarea:disabled:placeholder-shown + span::after {
+  border-top-color: transparent !important;
+}
+
+/* Faster transition in Safari for less noticable fractional font-size issue */
+@media not all and (min-resolution:.001dpcm) {
+    @supports (-webkit-appearance:none) {
+        .outlined-text-field> input,
+        .outlined-text-field> input + span,
+        .outlined-text-field> textarea,
+        .outlined-text-field> textarea + span,
+        .outlined-text-field> input + span::before,
+        .outlined-text-field> input + span::after,
+        .outlined-text-field> textarea + span::before,
+        .outlined-text-field> textarea + span::after {
+            transition-duration: 0.1s;
+        }
+    }
+}
+
+.form-checkbox {
+  color: #A8A8A8 !important;
+}
+
+.mat-checkbox-frame {
+  border-radius: 4px !important;
+}
+
+.form-buttons {
+  display: flex;
+  width: 100%;
+  height: 80px;
+  padding-top: 40px;
+  justify-content: space-between;
+}
+
+.form-buttons .primary-button {
+  width: 180px;
+  height: 40px;
+
+  background: #49B4BB;
+  color: #fff;
+
+  border: 1px solid #49B4BB;
+  border-radius: 8px;
+  font-size: 18px !important;
+  line-height: 21px;
+  padding: 11px 50px;
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: space-between;
+}
+
+.form-buttons .primary-button:hover {
+  background-color: #90D3D7;
+  border-color: #90D3D7;
+}
+
+.form-buttons .secondary-button {
+  background: transparent;
+  color: #49B4BB;
+
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font-size: 18px;
+  line-height: 21px;
+  padding: 11px 50px;
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: space-between;
+}
+
+.form-buttons .secondary-button:hover {
+  background-color: #D9F1F3;
+  color: #49B4BB;
+}
+
+.show-password-button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 40px;
+  height: 40px;
+
+  position: absolute;
+  top: 5px;
+  right: 8px;
+
+  visibility: visible;
+
+  background: transparent;
+  overflow: hidden;
+
+  user-select: none;
+  z-index: 100000000;
+
+  color: #A8A8A8;
+  cursor: pointer;
+}
+
+.show-password-button:focus,
+.show-password-button:hover {
+  text-decoration: none;
+}

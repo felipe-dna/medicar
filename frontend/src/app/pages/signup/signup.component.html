@@ -1,0 +1,44 @@
+<div class="main-container">
+  <form method="POST" class="form-container" #form="ngForm">
+    <span><img src="assets/logo.png" alt="logo" height="50" /></span>
+    <div class="form-fields">
+      <div>
+        <label class="outlined-text-field">
+          <input placeholder=" " name="email" type="email" [(ngModel)]="userSignupData.name" required>
+          <span>nome</span>
+        </label>
+      </div>
+
+      <div>
+        <label class="outlined-text-field">
+          <input placeholder=" " name="email" type="email" [(ngModel)]="userSignupData.email" required>
+          <span>nome</span>
+        </label>
+      </div>
+
+      <div>
+        <label class="outlined-text-field">
+          <input placeholder=" " name="password" [type]="hidePassword ? 'password' : 'text'" [(ngModel)]="userSignupData.password" required>
+          <span>Senha</span>
+          <a class="show-password-button" (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">
+            <i class="material-icons">{{hidePassword ? 'visibility_off' : 'visibility'}}</i>
+          </a>
+        </label>
+      </div>
+
+      <div>
+        <label class="outlined-text-field">
+          <input placeholder=" " name="password" [type]="hideConfirmPassword ? 'password' : 'text'" [(ngModel)]="userSignupData.confirmPassword" required>
+          <span>Senha</span>
+          <a class="show-password-button" (click)="hideConfirmPassword = !hideConfirmPassword" [attr.aria-label]="'Hide confirm password'" [attr.aria-pressed]="hideConfirmPassword">
+            <i class="material-icons">{{hideConfirmPassword ? 'visibility_off' : 'visibility'}}</i>
+          </a>
+        </label>
+      </div>
+    </div>
+    <div class="form-buttons">
+      <button type="button" class="waves-effect waves-light secondary-button" [routerLink]="['/signup']">Criar Conta</button>
+      <button type="submit" class="waves-effect waves-light primary-button" [disabled]="form.invalid" (click)="submitForm($event)">Acessar</button>
+    </div>
+  </form>
+</div>
