@@ -1,18 +1,19 @@
 <div class="main-container">
   <form method="POST" class="form-container" #form="ngForm">
     <span><img src="assets/logo.png" alt="logo" height="50" /></span>
+    <h3 class="form-title">Crie sua conta</h3>
     <div class="form-fields">
       <div>
         <label class="outlined-text-field">
-          <input placeholder=" " name="email" type="email" [(ngModel)]="userSignupData.name" required>
-          <span>nome</span>
+          <input placeholder=" " name="name" type="text" [(ngModel)]="userSignupData.name" required>
+          <span>Nome</span>
         </label>
       </div>
 
       <div>
         <label class="outlined-text-field">
           <input placeholder=" " name="email" type="email" [(ngModel)]="userSignupData.email" required>
-          <span>nome</span>
+          <span>Email</span>
         </label>
       </div>
 

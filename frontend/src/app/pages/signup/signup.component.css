@@ -19,6 +19,17 @@
   flex-direction : column;
 }
 
+.form-title {
+  display: inline-block;
+  margin: 20px 0 0 0;
+
+  color: #444;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 21px;
+}
+
 .form-container .form-fields {
   width: 400px;
   min-height: 220px !important;
