@@ -46,11 +46,12 @@ export class AppointmentFormComponent implements OnInit {
     this.getMedicalSpecialties();
   }
 
-  onNoClick(): void {
+  closeModal(): void {
     this.dialogRef.close();
   }
 
-  onClick(): void  {
+  addNewAppointment(event): void  {
+    event.preventDefault();
     this.createNewAppointment(this.newAppointment);
   }
 

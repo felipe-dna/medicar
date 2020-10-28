@@ -35,6 +35,7 @@
 
 .body-card {
   width: 100%;
+  padding: 18px 8px;
 }
 
 .card-actions {
@@ -46,6 +47,7 @@
   align-content: center;
 
   padding: 0;
+  margin: 0;
 }
 
 .card-title {
@@ -82,39 +84,68 @@
 table {
   width: 100%;
   box-shadow: none;
-  margin: 0 ;
+  margin: 17px 0 0 0 !important;
   padding: 0;
 }
 
+table thead {
+  border: none !important;
+}
 
-.mat-header-cell {
-  color: #A8A8A8
+table thead tr th {
+  font-style: normal;
+  font-weight: normal !important;
+  font-size: 12px;
+  line-height: 14px;
+  text-transform: uppercase;
+  color: #A8A8A8;
+}
+
+table tbody tr th {
+  font-style: normal;
+  font-weight: normal !important;
+  font-size: 13px;
+  line-height: 15px;
+  color: #444444;
+}
+
+table tbody tr th.decline-button-container {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-items: right !important;
 }
 
 .decline-button {
+  display: flex;
+  flex-direction: row;
+
   font-style: normal;
   font-weight: normal;
   font-size: 13px;
   line-height: 15px;
-  display: flex;
   align-items: center;
   text-align: center;
   color: #49B4BB;
   text-decoration: none;
+
+  box-sizing: border-box;
+  border-bottom: 1px solid transparent;
 }
 
 .decline-button-icon {
   font-size: 13px;
-  font-weight: 400;
+  font-weight: 700;
   line-height: 15px;
   display: flex;
   align-items: center;
   text-align: center;
   text-decoration: none;
+  margin-right: 10px;
 }
 
 .decline-button:hover {
   cursor: pointer;
+  border-bottom-color: #49B4BB;
 }
 
 .decline-button-icon:hover {

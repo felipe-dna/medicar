@@ -13,7 +13,7 @@ import { AppointmentFormComponent} from './components/appointment-form/appointme
 export class HomeComponent implements OnInit {
   public userName: string;
   appointmentList: Appointment[];
-  displayedColumns: string[] = ['ESPECIALIDADE', 'PROFISSIONAL', 'DATA', 'HORA', 'TOOLS'];
+  displayedColumns: string[] = ['ESPECIALIDADE', 'PROFISSIONAL', 'DATA', 'HORA'];
   speciality: string;
   doctor: string;
   date: string;

@@ -31,7 +31,7 @@
     </form>
   </div>
   <div class="mat-dialog-actions">
-    <button mat-button (click)="onNoClick()" class="decline-button">Cancelar</button>
-    <button mat-button (click)="onClick()" class="confirm-button" [disabled]="!formReady">Confirmar</button>
+    <button mat-button (click)="closeModal()" class="decline-button">Cancelar</button>
+    <button mat-button (click)="addNewAppointment($event)" class="confirm-button" [disabled]="!formReady">Confirmar</button>
 </div>
 </div>

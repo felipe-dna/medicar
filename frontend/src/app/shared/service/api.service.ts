@@ -61,7 +61,6 @@ export class ApiService {
   }
 
   public createNewAppointment(bodyParameters: AppointmentBodyParameters): Observable<Appointment[]> {
-    console.log(this.httpAuthorizedOptions);
     return this.httpClient.post<Appointment[]>(`${this.apiUrl}/appointments`, bodyParameters, this.httpAuthorizedOptions);
   }
 }
