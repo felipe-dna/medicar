@@ -4,8 +4,8 @@ Contains the appointments app tests.
 https://docs.djangoproject.com/en/3.1/topics/testing/overview/
 """
 
-from django.core.exceptions import ValidationError
 from django.test import TestCase
+from rest_framework.exceptions import ValidationError
 
 from ..doctors.models import Doctor
 from ..schedules.models import DoctorScheduleTime, DoctorSchedule
@@ -50,21 +50,6 @@ class AppointmentModelTestCase(TestCase):
         doctor_schedule.available_times.add(
             DoctorScheduleTime.objects.create(time='10:00:00')
         )
-
-    def test_try_to_create_a_appointment_passing_a_past_date(self) -> None:
-        """
-        Try to create a appointment passing a past date ensuring that the system returns
-        the correct error message.
-        """
-        expected_message = 'You cannot send a past date.'
-
-        with self.assertRaisesMessage(ValidationError, expected_message):
-            Appointment.objects.create(
-                day='1999-02-01',
-                time='07:00:00',
-                doctor=self.doctor,
-                patient=self.user
-            )
 
     def test_try_to_create_a_appointment_in_a_day_that_the_doctor_does_not_have_schedule(
         self
