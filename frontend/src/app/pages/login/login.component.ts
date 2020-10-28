@@ -22,22 +22,22 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSubmit(event): void {
+  async submitForm(event): Promise<void> {
     event.preventDefault();
-    this.authenticateUser(this.login);
+    await this.authenticateUser(this.login);
   }
 
-  setUserData(): void {
+  async setUserData(): Promise<void> {
     this.apiService.getUserData().toPromise().then(data => {
       window.localStorage.setItem('userId', data[0].id);
       window.localStorage.setItem('userName', data[0].name);
     }).then(() => this.router.navigate(['']));
   }
 
-  authenticateUser(credentials): void {
-    this.apiService.authenticateUser(credentials).subscribe(data => {
+  async authenticateUser(credentials): Promise<void> {
+    this.apiService.authenticateUser(credentials).subscribe(async data => {
       window.localStorage.setItem('token', data.token);
-      this.setUserData();
+      await this.setUserData();
     },
       error => { console.log(error); }
     );

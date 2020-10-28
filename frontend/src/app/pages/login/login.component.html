@@ -1,23 +1,28 @@
 <div class="main-container">
-  <form method="POST" class="form-container" #form="ngForm" (ngSubmit)="onSubmit($event)">
+  <form method="POST" class="form-container" #form="ngForm">
     <span><img src="assets/logo.png" alt="logo" height="50" /></span>
     <div class="form-fields">
-      <mat-form-field class="input-field" appearance="outline">
-        <mat-label >Email ou Login</mat-label>
-        <input name="email" matInput type="email" [(ngModel)]="login.email" required>
-      </mat-form-field>
-      <mat-form-field class="input-field" appearance="outline">
-        <mat-label >Senha</mat-label>
-        <input name="password" matInput [type]="hidePassword ? 'password' : 'text'" [(ngModel)]="login.password" required>
-        <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">
-        <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
-        </button>
-      </mat-form-field>
+      <div>
+        <label class="outlined-text-field">
+          <input placeholder=" " name="email" type="email" [(ngModel)]="login.email" required>
+          <span>Email ou Login</span>
+        </label>
+      </div>
+
+      <div>
+        <label class="outlined-text-field">
+          <input placeholder=" " name="password" [type]="hidePassword ? 'password' : 'text'" [(ngModel)]="login.password" required>
+          <span>Senha</span>
+          <a class="show-password-button" (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">
+            <i class="material-icons">{{hidePassword ? 'visibility_off' : 'visibility'}}</i>
+          </a>
+        </label>
+      </div>
       <div class="checkbox-row"><mat-checkbox class="form-checkbox">Lembrar minha senha</mat-checkbox></div>
     </div>
     <div class="form-buttons">
-      <button type="button" class="secondary-button" [routerLink]="['/signup']">Criar Conta</button>
-      <button type="submit" class="primary-button" [disabled]="form.invalid">Acessar</button>
+      <button type="button" class="waves-effect waves-light secondary-button" [routerLink]="['/signup']">Criar Conta</button>
+      <button type="submit" class="waves-effect waves-light primary-button" [disabled]="form.invalid" (click)="submitForm($event)">Acessar</button>
     </div>
   </form>
 </div>

@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { Appointment, AuthenticationResponse, Doctor, Schedule, Speciality, UserData } from '../models/Appointment.model';
+import {Injectable} from '@angular/core';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {Appointment, AuthenticationResponse, Doctor, Schedule, Speciality, UserData} from '../models/Appointment.model';
 
-import { environment } from '../../../environments/environment';
+import {environment} from '../../../environments/environment';
 import {AppointmentBodyParameters} from '../../pages/home/components/appointment-form/appointment-form.component';
 
 @Injectable({

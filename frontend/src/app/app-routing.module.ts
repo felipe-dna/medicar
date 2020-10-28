@@ -4,6 +4,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { AuthGuard } from './shared/auth.guard';
 import { LogoutComponent } from './pages/logout/logout.component';
+import { SignupComponent } from './pages/signup/signup.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
       {
         path: 'logout',
         component: LogoutComponent
+      },
+      {
+        path: 'signup',
+        component: SignupComponent
       }
     ]
   }
