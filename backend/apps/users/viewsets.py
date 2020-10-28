@@ -14,14 +14,20 @@ from apps.users.serializers import LoginSerializer, UserSerializer
 
 class UserViewSet(viewsets.ModelViewSet):
     """"""
-    http_method_names = ['get']
-    permission_classes = (IsAuthenticated,)
+    http_method_names = ['get', 'post']
     serializer_class = UserSerializer
+
+    def get_permissions(self):
+        permissions = [IsAuthenticated()] if self.request.method == 'GET' else []
+        return permissions
 
     def get_queryset(self) -> QuerySet:
         """"""
-        user = self.request.user
-        queryset = User.objects.filter(id=user.id)
+        if self.request.method == 'GET':
+            user = self.request.user
+            queryset = User.objects.filter(id=user.id)
+        else:
+            queryset = User.objects.all()
 
         return queryset
 

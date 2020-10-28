@@ -63,6 +63,15 @@ class LoginSerializer(serializers.Serializer):
         return parameters
 
 
-class UserSerializer(serializers.Serializer):
+class UserSerializer(serializers.ModelSerializer):
     """"""
-    name = serializers.CharField(read_only=True)
+    password = serializers.CharField(write_only=True)
+
+    def create(self, validated_data):
+        created_user = User.objects.create_user(**validated_data)
+        return created_user
+
+    class Meta:
+        model = User
+        fields = ('id', 'name', 'email', 'password')
+        read_only_fields = ('id',)

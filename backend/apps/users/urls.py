@@ -11,6 +11,6 @@ from apps.users.viewsets import LoginViewSet, UserViewSet
 app_name = 'users'
 
 urlpatterns = [
-    path('users', UserViewSet.as_view({'get': 'list'}), name='users'),
+    path('users', UserViewSet.as_view({'get': 'list', 'post': 'create'}), name='users'),
     path('users/login', LoginViewSet.as_view(), name='login')
 ]
