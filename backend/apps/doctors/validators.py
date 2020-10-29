@@ -29,5 +29,5 @@ def validate_phone(value: str) -> None:
     if not value.isdigit():
         raise ValidationError(_("The phone must be a numeric value."))
 
-    if len(value) < 10:
+    if len(value) < 8:
         raise ValidationError(_("A phone number must have at least 8 characters."))
